@@ -8,16 +8,33 @@
   <div class="w-100"></div>
 
   {{#if user}}
-  <div class="navbar-nav">
+  {{!-- <div class="navbar-nav">
 
     <div class="nav-item text-nowrap">
-      <a href="#" class="nav-link"> Bienvenido : {{user.user_name}} </a>
+      <a href="/dashboard" class="nav-link btn btn-info p-2 text-dark"> Bienvenido : {{user.user_name}} </a>
     </div>
+
+  </div> --}}
+  <!-- Example single danger button -->
+  <div class="btn-group">
+    <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Bienvenido : {{user.user_name}}
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/dashboard">Mi perfil</a></li>
+      <li><a class="dropdown-item" href="#">Solicitudes</a></li>
+      <li><a class="dropdown-item" href="#">Ayuda</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li> <a class="nav-link px-3" href="/logout">Salir</a>
+      </li>
+    </ul>
   </div>
   <div class="navbar-nav"></div>
-  <div class="nav-item text-nowrap">
+  {{!-- <div class="nav-item text-nowrap">
     <a class="nav-link px-3" href="/logout">Salir</a>
-  </div>
+  </div> --}}
 
   </div>
   {{else}}
@@ -47,57 +64,16 @@
 </header>
 
 <header class="header">
-  <div class="header__top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-6">
-          <div class="header__top__left">
-            <ul>
-              <li>
-                <FontAwesomeIcon icon={faEnvelope} /> hello@artistas.com
-              </li>
-              <li>Encuentra artistas desde S/.100.00 soles</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="header__top__right">
-            <div class="header__top__right__social">
-              <a href="#">
-                <FontAwesomeIcon icon={faCoffee} />
-              </a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-              <a href="#"><i class="fa fa-pinterest-p"></i></a>
-            </div>
-            {{!-- <div class="header__top__right__language">
-              <img src={language} alt="" />
-              <div>English</div>
-              <span class="arrow_carrot-down"></span>
-              <ul>
-                <li><a href="#">Spanis</a></li>
-                <li><a href="#">English</a></li>
-              </ul>
-            </div>
-            <div class="header__top__right__auth">
-              <a href="#">
-                <FontAwesomeIcon icon={faUser} /> Login
-              </a>
-            </div> --}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <div class="container">
-    <div class="row">
+    {{!-- <div class="row">
       <div class="col-lg-3">
         <div class="header__logo">
           <a href="./index.html"><img src="img/logo.png" alt="" /></a>
         </div>
       </div>
-      <div class="col-lg-6">
-        <nav class="header__menu">
+      <div class="col-lg-6"> --}}
+        {{!-- <nav class="header__menu">
           <ul>
             <li class="active"><a href="./salsa.html">Salsa</a></li>
             <li><a href="./rock.html">Rock</a></li>
@@ -106,23 +82,28 @@
             <li><a href="./mariachis.html">Mariachis</a></li>
           </ul>
         </nav>
-      </div>
-      <div class="col-lg-3">
+      </div> --}}
+      {{!-- <div class="col-lg-3">
         <div class="header__cart">
           <ul>
-            <li><a href="#">
-                <FontAwesomeIcon icon={faHeart} /><span>1</span>
+            <li><a href="#"> --}}
+                {{!--
+                <FontAwesomeIcon icon={faHeart} /><span>1</span> --}}
+                {{!--
+              </a></li> --}}
+            {{!-- <li><a href="#"> --}}
+                {{!--
+                <FontAwesomeIcon icon={faShoppingCart} /><span>3</span> --}}
+                {{!--
               </a></li>
-            <li><a href="#">
-                <FontAwesomeIcon icon={faShoppingCart} /><span>3</span>
-              </a></li>
-          </ul>
-          <div class="header__cart__price">item: <span>$150.00</span></div>
+          </ul> --}}
+          {{!-- <div class="header__cart__price">item: <span>$150.00</span></div> --}}
+          {{!--
         </div>
       </div>
     </div>
     <div class="humberger__open">
       <i class="fa fa-bars"></i>
-    </div>
+    </div> --}}
   </div>
 </header>
