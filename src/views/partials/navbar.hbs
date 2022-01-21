@@ -1,5 +1,5 @@
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">Company name</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">FAMOSOS</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
     data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -44,4 +44,85 @@
 
   </div>
   {{/if}}
+</header>
+
+<header class="header">
+  <div class="header__top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="header__top__left">
+            <ul>
+              <li>
+                <FontAwesomeIcon icon={faEnvelope} /> hello@artistas.com
+              </li>
+              <li>Encuentra artistas desde S/.100.00 soles</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="header__top__right">
+            <div class="header__top__right__social">
+              <a href="#">
+                <FontAwesomeIcon icon={faCoffee} />
+              </a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-linkedin"></i></a>
+              <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            </div>
+            {{!-- <div class="header__top__right__language">
+              <img src={language} alt="" />
+              <div>English</div>
+              <span class="arrow_carrot-down"></span>
+              <ul>
+                <li><a href="#">Spanis</a></li>
+                <li><a href="#">English</a></li>
+              </ul>
+            </div>
+            <div class="header__top__right__auth">
+              <a href="#">
+                <FontAwesomeIcon icon={faUser} /> Login
+              </a>
+            </div> --}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="header__logo">
+          <a href="./index.html"><img src="img/logo.png" alt="" /></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <nav class="header__menu">
+          <ul>
+            <li class="active"><a href="./salsa.html">Salsa</a></li>
+            <li><a href="./rock.html">Rock</a></li>
+            <li><a href="./cumbia.html">Cumbia</a></li>
+            <li><a href="./merengue.html">Merengue</a></li>
+            <li><a href="./mariachis.html">Mariachis</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-lg-3">
+        <div class="header__cart">
+          <ul>
+            <li><a href="#">
+                <FontAwesomeIcon icon={faHeart} /><span>1</span>
+              </a></li>
+            <li><a href="#">
+                <FontAwesomeIcon icon={faShoppingCart} /><span>3</span>
+              </a></li>
+          </ul>
+          <div class="header__cart__price">item: <span>$150.00</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="humberger__open">
+      <i class="fa fa-bars"></i>
+    </div>
+  </div>
 </header>
