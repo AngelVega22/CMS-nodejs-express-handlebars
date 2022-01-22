@@ -2,8 +2,8 @@ module.exports = {
     database: {
         connectionLimit: 10,
         host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'proyectotec'
+        user: 'minaya_angel',
+        password: 'BandidoIsiliano#',
+        database: 'minaya_proyectotec'
     }
 }

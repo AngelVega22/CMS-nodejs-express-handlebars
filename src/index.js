@@ -46,6 +46,7 @@ app.use((req, res, next) => {
 app.use(require('./routes/dashboardRoute'));
 app.use(require("./routes/indexRoute"));
 app.use(require("./routes/authRoute"));
+app.use(require("./routes/productsRoute"));
 
 app.use(express.static(path.join(__dirname, "public")));
 //Starting

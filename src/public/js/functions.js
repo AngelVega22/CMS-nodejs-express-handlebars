@@ -1,3 +1,8 @@
+// const { response } = require("express");
+
+
+// const { response } = require("express");
+
 (function () {
     window.addEventListener('load', function () {
         var forms = document.getElementsByClassName('needs-validation');
@@ -13,3 +18,26 @@
         });
     }, false);
 })();
+
+
+const url = 'https://famososartistas.herokuapp.com/api/artistas'
+
+fetch(url, {
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json",
+    },
+})
+    .then((response) => response.json())
+    .then((data) => {
+        for (var i = 0; i < data.length; i++) {
+            const jsons = JSON.stringify(data[i].nombreArtista)
+            let element = document.getElementById('elem')
+            const e = document.createElement('p')
+            e.innerHTML = jsons
+            element.appendChild(e)
+            console.log(e)
+        }
+        return data;
+    }
+    ); 
