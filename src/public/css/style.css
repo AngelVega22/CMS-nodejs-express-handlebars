@@ -618,8 +618,7 @@ ol {
 
 .footer__widget .footer__widget__social a {
 	display: inline-block;
-	height: 41px;
-	width: 41px;
+
 	font-size: 16px;
 	color: #404040;
 	border: 1px solid #ededed;
@@ -627,7 +626,7 @@ ol {
 	line-height: 38px;
 	text-align: center;
 	background: #ffffff;
-	-webkit-transition: all, 0.3s;
+	transition: all, 0.3s;
 	-moz-transition: all, 0.3s;
 	-ms-transition: all, 0.3s;
 	-o-transition: all, 0.3s;
