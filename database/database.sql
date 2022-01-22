@@ -12,21 +12,44 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Volcando datos para la tabla prototype.sessions: ~3 rows (aproximadamente)
+
+-- Volcando estructura de base de datos para proyectotec
+CREATE DATABASE IF NOT EXISTS `proyectotec` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `proyectotec`;
+
+-- Volcando estructura para tabla proyectotec.sessions
+CREATE TABLE IF NOT EXISTS `sessions` (
+  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `expires` int(11) unsigned NOT NULL,
+  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  PRIMARY KEY (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla proyectotec.sessions: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-	('9wveGiAGoX_idAJz1IaxJd5srMzeQ4Kp', 1642821229, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{"user":2}}'),
-	('Px4LEhMYN-P4VhmXW9f_SWDosZnlgzSq', 1642821460, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{"user":3}}'),
-	('ZEVJgipikOpZPlaYvOzrDfa-oYvnVbVU', 1642828917, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{"user":3}}');
+	('v82eir5QOoWCdRsbdyW9tYaK0eTi8_IF', 1642899244, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{"user":6}}');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 
--- Volcando datos para la tabla prototype.user: ~4 rows (aproximadamente)
+-- Volcando estructura para tabla proyectotec.user
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `is_active` tinyint(4) NOT NULL,
+  `date_joined` datetime DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `is_superuser` bit(1) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla proyectotec.user: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `last_login`, `is_active`, `date_joined`, `password`, `is_superuser`, `user_name`) VALUES
-	(1, 'Angel', 'Vega', 'aveg@gmail.com', NULL, 1, NULL, 'dasdasasddasasddas', NULL, NULL),
-	(3, 'Angel', 'Vega', 'avega@gmail.com', '2022-01-20 22:15:41', 1, '2022-01-20 22:15:41', '$2a$10$mPerabyLgZ8ed.uOhf7QoOpmiHgT0wVOce9VQUrXiblu/FPfk0OY6', b'1', 'avega'),
-	(4, 'Angel', 'Vega', 'a@a.com', '2022-01-20 22:22:06', 1, '2022-01-20 22:22:06', '$2a$10$KQ9KY4.fDufqu3R5TXneXeTiJ5E0CTt67KNeu7VlJUVeysjOLS3Ka', b'1', 'avega'),
-	(5, 'Angel', 'Vega', 'correo@correo.com', '2022-01-20 22:23:47', 1, '2022-01-20 22:23:47', '$2a$10$rvJIksvwPetA8E8eSntbHuCzkbWJkdFn27ahzfYTQqn5/MGrLVhB6', b'1', 'avega');
+	(6, 'Angel', 'Vega', 'aveg@gmail.com', '2022-01-21 08:27:33', 1, '2022-01-21 08:27:33', '$2a$10$I7JZS.cexfDGI8XxYqAPI.t9XjFGacm.FqjdMGk7vjvVSoV3t.3EG', b'1', 'avega');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

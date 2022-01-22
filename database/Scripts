@@ -1,0 +1,17 @@
+CREATE TABLE `user` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`first_name` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`last_name` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`email` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`last_login` DATETIME NULL DEFAULT NULL,
+	`is_active` TINYINT(4) NOT NULL,
+	`date_joined` DATETIME NULL DEFAULT NULL,
+	`password` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	`is_superuser` BIT(1) NULL DEFAULT NULL,
+	`user_name` VARCHAR(255) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	PRIMARY KEY (`id`) USING BTREE
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=6
+;
