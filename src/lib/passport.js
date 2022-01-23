@@ -8,11 +8,12 @@ passport.use('local.signup', new LocalStrategy({
   passwordField: 'password',
   passReqToCallback: true
 }, async (req, email, password, done) => {
-  const { first_name, last_name, user_name } = req.body;
+  const { first_name, last_name, user_name, is_artist } = req.body;
   let last_login = new Date();
   let is_active = 1;
   let date_joined = new Date();
   let is_superuser = 1;
+
   let newUser = {
     first_name,
     last_name,
@@ -22,8 +23,10 @@ passport.use('local.signup', new LocalStrategy({
     last_login,
     is_active,
     date_joined,
-    is_superuser
+    is_superuser,
+    is_artist
   };
+  console.log(newUser)
   newUser.password = await bcrypt.encryptPassword(password);
   // console.log(newUser);
   await pool.beginTransaction(async (error) => {
@@ -58,6 +61,9 @@ passport.use('local.signup', new LocalStrategy({
 
   });
 }));
+//==============================================//
+
+//=/==========================================/=//
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });

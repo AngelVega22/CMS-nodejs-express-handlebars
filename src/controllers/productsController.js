@@ -36,7 +36,7 @@ controller.addProducto = async (req, res) => {
         precio,
         id_user: req.user.id
     };
-    console.log(newProduct)
+
     await pool.query('INSERT INTO producto set ?', [newProduct]);
     res.redirect('/miList');
 }

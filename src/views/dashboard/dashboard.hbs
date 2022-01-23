@@ -47,21 +47,22 @@
       <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
         <div class=" card-body p-4">
           <h5 class="card-title mb-5">Administración de cuenta</h5>
-          <p>
-            {{!-- <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
-              aria-expanded="false" aria-controls="collapseExample">
-              Link with href
-            </a> --}}
-            <a href="/miList"> <button class="btn btn-secondary" type="button">
-                Ver publicaciones
-              </button> </a>
-          </p>
+
+
+          <a href="/miList"> <button class="btn btn-secondary" type="button">
+              Ver solicitudes
+            </button> </a>
+
+
+          {{#if user.is_artist}}{{is_artist includeZero=true}}
+          <a href="/miList"> <button class="btn btn-secondary" type="button">
+              Ver publicaciones
+            </button> </a> {{/if}}
+
 
         </div>
       </div>
     </div>
     {{! <h2>Section title</h2> }}
-    <div class="table-responsive">
 
-    </div>
   </main>

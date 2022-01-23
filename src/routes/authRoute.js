@@ -4,6 +4,7 @@ const authController = require("../controllers/authController");
 const { check, validationResult } = require("express-validator");
 const passport = require("passport");
 const { isNotLoggedIn, isLoggedIn } = require('../lib/auth');
+const pool = require('../connection');
 
 //METODOS GET
 router.get("/signup", isNotLoggedIn, (req, res) => {

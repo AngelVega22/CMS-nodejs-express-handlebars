@@ -37,6 +37,24 @@
               <input type="password" name="password" value="{{data.password}}" placeholder="Contraseña"
                 class="form-control" required />
             </div>
+            <div class="d-flex justify-content-start mb-2 p-1">
+              <h6> ¿Eres un Artista?</h6>
+            </div>
+            <div class="form-check col-1">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="is_artist" id="is_artist" value="1" required>
+                <label class="form-check-label" for="is_artist">
+                  Si
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="is_artist" id="is_artist" value="0" required>
+                <label class="form-check-label" for="is_artist">
+                  No
+                </label>
+              </div>
+            </div>
             <div class="form-group">
               <br />
               <button class="btn btn-success btn block">
