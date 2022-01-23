@@ -3,7 +3,7 @@ const router = express.Router();
 const authController = require("../controllers/authController");
 const { check, validationResult } = require("express-validator");
 const passport = require("passport");
-const { isNotLoggedIn } = require('../lib/auth');
+const { isNotLoggedIn, isLoggedIn } = require('../lib/auth');
 
 //METODOS GET
 router.get("/signup", isNotLoggedIn, (req, res) => {
@@ -73,5 +73,8 @@ router.get('/logout', (req, res) => {
   req.logOut();
   res.redirect('/')
 })
+
+//=================//
+router.post('/editUser/:id', isLoggedIn, authController.updateUser);
 
 module.exports = router;

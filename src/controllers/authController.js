@@ -1,20 +1,17 @@
 const controller = {};
+const pool = require('../connection')
 
-// const passport = require("passport");
-// const { check, validationResult } = require("express-validator");
+//Editar usuario
+controller.updateUser = async (req, res) => {
 
-// (controller.signUp = [
-//   check("email").isEmail().withMessage("Email is required"),
-// ]),
-//   (req, res) => {
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//       res.render("auth/signup", { errors: errors.array() });
-//     }
-//   },
-//   passport.authenticate("local.signup", {
-//     successRedirect: "/inicio",
-//     failureRedirect: "/signup",
-//   });
+    const { id } = req.params;
+    const { first_name, last_name, email, user_name } = req.body;
+    const updatedUser = {
+        first_name, last_name, email, user_name
+    };
+
+    await pool.query('UPDATE user set ? WHERE id = ?', [updatedUser, id]);
+    res.redirect('/dashboard');
+}
 
 module.exports = controller;

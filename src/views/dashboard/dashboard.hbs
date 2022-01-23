@@ -8,15 +8,40 @@
 
       <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
         <div class=" card-body p-4">
-          <h5 class="card-title mb-5">Información de tu cuenta</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Nombre y Apellido</h6>
-          <input class="form-control w-25" type="text" value="{{user.first_name}} {{user.last_name}}" disabled>
-          <h6 class="card-subtitle mb-2 text-muted mt-2">Correo electrónico</h6>
-          <input class="form-control w-25" type="text" value="{{user.email}} " disabled>
-          <h6 class="card-subtitle mb-2 text-muted mt-2">Username</h6>
-          <input class="form-control w-25" type="text" value="{{user.user_name}} " disabled>
-          <div class="d-flex justify-content-end mt-5"> <a class="text-dark text-decoration-none" href="/logout"> Cerrar
-              sesión</a></div>
+          <form action="/editUser/{{user.id}}" method="POST">
+            <div class="d-flex justify-content-end">
+              <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                <button type="button" class="btn btn-sm btn-secondary " onclick="activarInput()"><i
+                    class="fas fa-user-edit"></i> Editar</button> &nbsp;
+                <button type="submit" class="btn btn-sm btn-secondary active"><i class="fas fa-save"></i>
+                  Guardar</button>
+
+              </div>
+
+
+            </div>
+
+            <h5 class="card-title mb-5">Información de tu cuenta</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Nombres</h6>
+            <input name="first_name" id="activate" class="form-control w-25" type="text" value="{{user.first_name}} "
+              disabled>
+            <h6 class="card-subtitle mb-2 mt-1 text-muted">Apellidos</h6>
+            <input name="last_name" id="activate2" class="form-control w-25" type="text" value="{{user.last_name}} "
+              disabled>
+            <h6 class="card-subtitle mb-2 text-muted mt-2">Correo electrónico</h6>
+            <input name="email" id="activate3" class="form-control w-25" type="text" value="{{user.email}} " disabled>
+            <h6 class="card-subtitle mb-2 text-muted mt-2">Username</h6>
+            <input name="user_name" id="activate4" class="form-control w-25" type="text" value="{{user.user_name}} "
+              disabled>
+
+
+
+            <div class=" d-flex justify-content-end mt-5"> <a class="text-black-50 fs-6 fw-bolder text-decoration-none"
+                href="/logout">
+                Cerrar
+                sesión</a></div>
+          </form>
         </div>
       </div>
       <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
