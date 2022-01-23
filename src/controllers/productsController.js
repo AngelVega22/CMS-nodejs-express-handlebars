@@ -13,16 +13,9 @@ controller.list = (req, res) => {
     });
 };
 //Listar productos en el dashboard -- proximamente listar productos por usuario
-controller.miList = (req, res) => {
-    const producto = pool.query("SELECT * FROM producto", (err, producto) => {
-        if (err) {
-            res.json(err);
-        }
-
-        res.render("partials/miList", {
-            data: producto,
-        });
-    });
+controller.miList = async (req, res) => {
+    const data = await pool.query("SELECT * FROM producto WHERE id_user =? ", [req.user.id]);
+    res.render('partials/miList', { data })
 }
 //Eliminar producto/servicio
 controller.deleteProducto = async (req, res) => {
@@ -41,8 +34,9 @@ controller.addProducto = async (req, res) => {
         url_img,
         genero,
         precio,
-        // id: req.user.id
+        id_user: req.user.id
     };
+    console.log(newProduct)
     await pool.query('INSERT INTO producto set ?', [newProduct]);
     res.redirect('/miList');
 }
