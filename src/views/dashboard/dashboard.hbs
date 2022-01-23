@@ -6,7 +6,7 @@
 
     <div class="container">
 
-      <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
+      <div class="card m-3 shadow p-3 mb-3 bg-body rounded">
         <div class=" card-body p-4">
           <form action="/editUser/{{user.id}}" method="POST">
             <div class="d-flex justify-content-end">
@@ -35,8 +35,6 @@
             <input name="user_name" id="activate4" class="form-control w-25" type="text" value="{{user.user_name}} "
               disabled>
 
-
-
             <div class=" d-flex justify-content-end mt-5"> <a class="text-black-50 fs-6 fw-bolder text-decoration-none"
                 href="/logout">
                 Cerrar
@@ -44,6 +42,7 @@
           </form>
         </div>
       </div>
+      {{#if user.is_artist}}{{is_artist includeZero=true}}
       <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
         <div class=" card-body p-4">
           <h5 class="card-title mb-5">Administración de cuenta</h5>
@@ -54,14 +53,48 @@
             </button> </a>
 
 
-          {{#if user.is_artist}}{{is_artist includeZero=true}}
+
           <a href="/miList"> <button class="btn btn-secondary" type="button">
               Ver publicaciones
-            </button> </a> {{/if}}
+            </button> </a>
 
 
         </div>
       </div>
+      {{else}}
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
+            <div class=" card-body p-4">
+              <h5 class="card-title mb-5">Administración de cuenta</h5>
+
+
+              <a href="/miList"> <button class="btn btn-secondary" type="button">
+                  Administrar
+                </button> </a>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
+            <div class=" card-body p-4">
+              <h5 class="card-title mb-5">Administración de pedidos</h5>
+
+
+              <a href="/miList"> <button class="btn btn-secondary" type="button">
+                  Ver mis pedidos
+                </button> </a>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{/if}}
+
     </div>
     {{! <h2>Section title</h2> }}
 
