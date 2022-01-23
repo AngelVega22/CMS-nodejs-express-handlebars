@@ -38,22 +38,22 @@
       <div class="col-lg-6">
         <nav class="header__menu">
           <ul>
-            <li class="active"><a href="./salsa.html">Salsa</a></li>
-            <li><a href="./rock.html">Rock</a></li>
-            <li><a href="./cumbia.html">Cumbia</a></li>
-            <li><a href="./merengue.html">Merengue</a></li>
-            <li><a href="./mariachis.html">Mariachis</a></li>
+            <li class="active"><a href="#">Todos</a></li>
+            <li><a href="#">Rock</a></li>
+            <li><a href="#">Cumbia</a></li>
+            <li><a href="#">Merengue</a></li>
+            <li><a href="#">Mariachis</a></li>
           </ul>
         </nav>
       </div>
       <div class="col-lg-3">
         <div class="header__cart">
           <ul>
-            <li><a href="#">
+            {{!-- <li><a href="#">
                 <i class="far fa-heart"></i>
               </a></li>
             <li><a href="#">
-                <i class="fas fa-shopping-cart"></i> </a></li>
+                <i class="fas fa-shopping-cart"></i> </a></li> --}}
           </ul>
           {{!-- <div class="header__cart__price">item: <span>$150.00</span></div> --}}
         </div>
@@ -85,21 +85,14 @@
             </div> --}}
           </div>
           <div class="row featured__filter">
-
-
-
             <div class="row">
               {{#each data}}
-              <div class="col-3 ">
+              <div class="col-md-6 col-lg-3    mb-5 ">
 
-                <div class="card-body ">
+                <div class="card-body">
 
                 </div>
-
-
-
-
-                <img class="shadow  bg-body rounded" src="{{url_img}}" alt="">
+                <img style="height: 30em; overflow: hidden;" class="shadow  bg-body rounded" src="{{url_img}}" alt="">
                 <h3 class="pt-1">{{nombre_artista}}</h3>
                 <h6 class="text-black-50"> #{{genero}}</h6>
 

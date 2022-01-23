@@ -1,0 +1,42 @@
+<div class="col-md-4 mx-auto">
+
+    <div class="card shadow p-3 mb-5 mt-5 bg-body rounded">
+        <div class=" card-body">
+            <h5 class="text-center mb-4 alert alert-secondary">Ingresa los datos quieras actualizar</h5>
+
+            <form action="/editProduct/{{producto.id}}" method="POST">
+                <div class="form-outline mb-4">
+                    <input type="text" name="nombre_artista" class="form-control" placeholder="Nombre de servicio"
+                        value="{{producto.nombre_artista}}" autofocus required>
+
+                </div>
+                <div class="form-outline mb-4">
+                    <input style="resize: none; " name="descripcion" class="form-control" placeholder="Descripcion"
+                        value="{{producto.descripcion}}" required>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="url" name="url_img" class="form-control" placeholder="URL de tu foto"
+                        value="{{producto.url_img}}" required>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="text" name="genero" class="form-control" placeholder="Genero"
+                        value="{{producto.genero}}" required>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="number" min="0" max="10000" step="any" name="precio" class="form-control"
+                        placeholder="Precio" value="{{producto.precio}}" required>
+                </div>
+                <div class="form-outline mb-4 d-flex justify-content-center">
+                    <br>
+                    <button class="btn btn-primary btn-block ">
+                        Actualizar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="d-flex justify-content-center"> <a class="text-dark text-decoration-none mb-5" href="/miList"> <i
+            class="fas fa-undo-alt "></i> Regresar </a>
+</div>

@@ -17,7 +17,7 @@
                 <table class="table table-light shadow-sm p-3  bg-body rounded">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+
                             <th scope="col">Foto</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Genero</th>
@@ -28,14 +28,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">{{id}}</th>
-                            <td><img width="50" src="{{url_img}}" alt=""></td>
+                            <td><img width="50" class="rounded-pill img-fluid" src="{{url_img}}" alt=""></td>
                             <td>{{nombre_artista}}</td>
                             <td>{{genero}}</td>
                             <td>{{descripcion}}</td>
                             <td>S/.{{precio}} PEN</td>
                             <td>
-                                <a class="btn btn-secondary" href="/edit/{{id}}">
+                                <a class="btn btn-secondary" href="/editProduct/{{id}}">
                                     Editar
                                 </a>
                                 <a class="btn btn-danger" href="/deleteProducto/{{id}}">

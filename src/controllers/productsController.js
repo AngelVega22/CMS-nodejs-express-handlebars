@@ -41,11 +41,21 @@ controller.addProducto = async (req, res) => {
         url_img,
         genero,
         precio,
-        id: req.user.id
+        // id: req.user.id
     };
     await pool.query('INSERT INTO producto set ?', [newProduct]);
-    res.redirect('/dashboard');
-
-
+    res.redirect('/miList');
 }
+
+//Editar producto
+controller.updateProducto = async (req, res) => {
+    const { id } = req.params;
+    const { nombre_artista, descripcion, genero, url_img, precio } = req.body;
+    const newProduct = {
+        nombre_artista, descripcion, genero, url_img, precio
+    };
+    await pool.query('UPDATE producto set ? WHERE id = ?', [newProduct, id]);
+    res.redirect('/miList');
+}
+
 module.exports = controller;
