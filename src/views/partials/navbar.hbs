@@ -13,10 +13,12 @@
     <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
       Bienvenido : {{user.user_name}}
     </button>
+    {{#if user.is_superuser}}
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="/dashboard">Mi perfil</a></li>
-      <li><a class="dropdown-item" href="/miList">dashboard</a></li>
-      <li><a class="dropdown-item" href="#">Ayuda</a></li>
+      <li><a class="dropdown-item" href="/dashboard">Panel de control</a></li>
+      <li><a class="dropdown-item" href="/adminUsuarios">Usuarios</a></li>
+
+
       <li>
         <hr class="dropdown-divider">
       </li>
@@ -25,11 +27,25 @@
     </ul>
   </div>
   <div class="navbar-nav"></div>
-  {{!-- <div class="nav-item text-nowrap">
-    <a class="nav-link px-3" href="/logout">Salir</a>
-  </div> --}}
+  </div>
+
+  {{else}}
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/dashboard">Mi perfil</a></li>
+
+    <li>
+      <hr class="dropdown-divider">
+    </li>
+    <li> <a class="nav-link px-3" href="/logout">Salir</a>
+    </li>
+  </ul>
+  </div>
+  {{/if}}
+  <div class="navbar-nav"></div>
+
 
   </div>
+
   {{else}}
   <div class="navbar-nav">
 

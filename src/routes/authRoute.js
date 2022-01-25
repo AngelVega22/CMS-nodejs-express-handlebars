@@ -7,6 +7,8 @@ const { isNotLoggedIn, isLoggedIn } = require('../lib/auth');
 const pool = require('../connection');
 
 //METODOS GET
+router.get('/adminUsuarios', isLoggedIn, authController.adminUsuarios);
+
 router.get("/signup", isNotLoggedIn, (req, res) => {
   res.render("auth/signup");
 });
@@ -77,5 +79,7 @@ router.get('/logout', (req, res) => {
 
 //=================//
 router.post('/editUser/:id', isLoggedIn, authController.updateUser);
+
+
 
 module.exports = router;

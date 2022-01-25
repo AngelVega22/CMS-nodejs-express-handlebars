@@ -1,0 +1,65 @@
+{{#if user.is_superuser}}
+<div class="mb-5 bg-light p-3">
+    <h4 class="container">Administración de usuarios</h4>
+</div>
+<main class="container  mt-5">
+    <div class="row">
+
+
+
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Fecha de registro</th>
+                    <th>Ultima sesión</th>
+                    <th>Es artista</th>
+
+                    <th scope="col">Mantenimiento</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr> {{#each data}}
+                    <td style="width: 7vw;">{{first_name}}</td>
+                    <td style="width: 7vw;">{{last_name}}</td>
+                    <td style="width: 10vw;">{{email}}</td>
+                    <td style="width: 10vw;"> {{user_name}}</td>
+                    <td style="width: 10vw;"> {{date_joined}}</td>
+                    <td style="width: 10vw;"> {{last_login}}</td>
+                    <td>{{is_artist}}
+                    </td>
+
+                    <td>
+                        <a class="btn btn-secondary" href="/editUser/{{id}}">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger" href="/deleteUser/{{id}}">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+</main>
+{{else}}
+<div style="height: 60vh;" class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <span class="display-1 d-block">4<i class="far fa-question-circle fa-spin"></i>4</span>
+                <div class="mb-4 lead">La página que buscas no existe</div>
+                <a href="/" class="btn btn-link text-dark text-decoration-none">Regresa a
+                    inicio</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/if}}

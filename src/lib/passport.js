@@ -12,7 +12,7 @@ passport.use('local.signup', new LocalStrategy({
   let last_login = new Date();
   let is_active = 1;
   let date_joined = new Date();
-  let is_superuser = 1;
+  let is_superuser = 0;
 
   let newUser = {
     first_name,

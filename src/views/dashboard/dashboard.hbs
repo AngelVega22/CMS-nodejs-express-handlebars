@@ -1,7 +1,105 @@
 {{!-- <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> --}}
+
+  {{#if user.is_superuser}}
+  <style>
+    /******************************
+
+Stati - minimal statistical cards
+
+*******************************/
+    .stati {
+      background: #fff;
+
+      padding: 1em;
+      margin: 1em 0;
+      -webkit-transition: margin 0.5s ease, box-shadow 0.5s ease;
+      /* Safari */
+      transition: margin 0.5s ease, box-shadow 0.5s ease;
+      -moz-box-shadow: 0px 0.2em 0.4em rgb(0, 0, 0, 0.8);
+      -webkit-box-shadow: 0px 0.2em 0.4em rgb(0, 0, 0, 0.8);
+      box-shadow: 0px 0.2em 0.4em rgb(0, 0, 0, 0.8);
+    }
+
+    .stati:hover {
+
+      -moz-box-shadow: 0px 0.4em 0.5em rgb(0, 0, 0, 0.8);
+      -webkit-box-shadow: 0px 0.4em 0.5em rgb(0, 0, 0, 0.8);
+      box-shadow: 0px 0.4em 0.5em rgb(0, 0, 0, 0.8);
+    }
+  </style>
+  <main class="container-fluid">
+    <div class="bg-light p-3 mb-5">
+      <h4 class="container">Administración</h4>
+    </div>
+
+    <div class="container">
+
+      <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
+        <div class=" card-body p-4">
+
+          <h4 class="text-center mb-5">Panel de Administración</h4>
+          <div class="row ">
+
+            <div class="col-md-4">
+              <div class="stati turquoise  ">
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-users-cog fa-2x mb-3"></i>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <a class="btn btn-info text-dark text-decoration-none text-center h5 "
+                    href="/adminUsuarios">Administración de
+                    usuarios </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="stati turquoise left">
+                <div class="d-flex justify-content-center"> <i class="fas fa-boxes fa-2x mb-3"></i></div>
+
+                <div class="d-flex justify-content-center">
+                  <a class="btn btn-info text-dark text-decoration-none text-center h5 " href="">Administración de
+                    pedidos </a>
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="stati bg-turquoise  ">
+                <div class="d-flex justify-content-center">
+                  <i class="fas fa-mail-bulk fa-2x mb-3"></i>
+                </div>
+                <div class="d-flex justify-content-center">
+
+                  <a class="btn btn-info text-dark text-decoration-none text-center h5 " href="">Administración de
+                    solicitudes
+                  </a>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </main>
+
+
+  {{else}}
+
   <main class="container-fluid">
     <div class="bg-light p-3">
       <h4 class="container">Mi perfil</h4>
+
     </div>
 
     <div class="container">
@@ -99,3 +197,4 @@
     {{! <h2>Section title</h2> }}
 
   </main>
+  {{/if}}

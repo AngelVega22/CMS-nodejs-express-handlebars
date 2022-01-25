@@ -1,4 +1,4 @@
-{{#if user.is_artist}}{{is_artist includeZero=true}}
+{{#if user.is_artist}}
 
 <div class="container">
     <div class="card m-3 shadow p-3 mt-5 mb-5 bg-body rounded">
@@ -15,7 +15,6 @@
             <div class="row">
 
 
-                {{#each data}}
                 <table class="table table-light shadow-sm p-3  bg-body rounded">
                     <thead>
                         <tr>
@@ -30,6 +29,7 @@
                     </thead>
                     <tbody>
                         <tr>
+                            {{#each data}}
                             <td><img width="50" class="rounded-pill img-fluid" src="{{url_img}}" alt=""></td>
                             <td>{{nombre_artista}}</td>
                             <td>{{genero}}</td>
@@ -43,19 +43,19 @@
                                     Eliminar
                                 </a>
                             </td>
-                        </tr>
+                        </tr> {{else}}
+                        <div class="col-md-4 mb-5 mx-auto">
+                            <div class="card card-body text-center">
+                                <p>No tienes publicaciones todavia.</p>
+                                <a class="text-dark text-decoration-none" href="/addProduct">¡Crea una!</a>
+                            </div>
+                        </div>
+                        {{/each}}
 
                     </tbody>
                 </table>
 
-                {{else}}
-                <div class="col-md-4 mx-auto">
-                    <div class="card card-body text-center">
-                        <p>No tienes publicaciones todavia.</p>
-                        <a class="text-dark text-decoration-none" href="/addProduct">¡Crea uno!</a>
-                    </div>
-                </div>
-                {{/each}}
+
             </div>
 
         </div>

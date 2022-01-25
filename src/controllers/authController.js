@@ -14,4 +14,11 @@ controller.updateUser = async (req, res) => {
     res.redirect('/dashboard');
 }
 
+controller.adminUsuarios = async (req, res) => {
+
+
+    const data = await pool.query("SELECT * FROM user  ", [req.user.id]);
+    res.render('partials/adminUsuarios', { data })
+}
+
 module.exports = controller;
