@@ -47,9 +47,6 @@ app.use(require('./routes/dashboardRoute'));
 app.use(require("./routes/indexRoute"));
 app.use(require("./routes/authRoute"));
 app.use(require("./routes/productsRoute"));
-// app.use((req, res, next) => {
-//   res.status(404).send('404')
-// })
 
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -59,7 +56,6 @@ app.listen(app.get("port"), () => {
 });
 
 //Error 404
-app.get("*", (req, res) => {
+app.get("*", (req, res, next) => {
   res.render("404")
-
 })
