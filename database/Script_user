@@ -4,14 +4,15 @@ CREATE TABLE `user` (
 	`last_name` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
 	`email` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
 	`last_login` DATETIME NULL DEFAULT NULL,
-	`is_active` TINYINT(4) NOT NULL,
+	`is_active` TINYINT(4) NULL DEFAULT NULL,
 	`date_joined` DATETIME NULL DEFAULT NULL,
-	`password` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
-	`is_superuser` BIT(1) NULL DEFAULT NULL,
+	`password` VARCHAR(255) NOT NULL DEFAULT '0' COLLATE 'latin1_swedish_ci',
+	`is_superuser` INT(11) NULL DEFAULT NULL,
 	`user_name` VARCHAR(255) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	`is_artist` INT(11) NULL DEFAULT '0',
 	PRIMARY KEY (`id`) USING BTREE
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=6
+AUTO_INCREMENT=26
 ;
