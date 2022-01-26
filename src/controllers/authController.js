@@ -17,7 +17,7 @@ controller.updateUser = async (req, res) => {
 controller.adminUsuarios = async (req, res) => {
 
 
-    const data = await pool.query("SELECT * FROM user  ", [req.user.id]);
+    const data = await pool.query("SELECT * FROM user where is_superuser = 0 ", [req.user.id]);
     res.render('partials/adminUsuarios', { data })
 }
 
