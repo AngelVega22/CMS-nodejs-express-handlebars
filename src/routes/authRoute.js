@@ -9,6 +9,8 @@ const pool = require('../connection');
 //METODOS GET
 router.get('/adminUsuarios', isLoggedIn, authController.adminUsuarios);
 
+router.get('/deleteUsuarios/:id', isLoggedIn, authController.deleteUsuarios)
+
 router.get("/signup", isNotLoggedIn, (req, res) => {
   res.render("auth/signup");
 });

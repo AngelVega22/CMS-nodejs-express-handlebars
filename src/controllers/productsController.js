@@ -1,7 +1,7 @@
 const controller = {};
 const pool = require('../connection')
 
-//list
+//listar productos
 controller.list = (req, res) => {
     const producto = pool.query("SELECT * FROM producto", (err, producto) => {
         if (err) {
