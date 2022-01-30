@@ -5,13 +5,13 @@
         </div>
     </div>
 </div>
-
+{{#if producto}}
 <div class="bg-light p-3">
     <div class="container">
         <h4>Ultimas publicaciones</h4>
     </div>
 </div>
-{{#if producto}}
+
 <div class="container mt-5">
     <div class="row">
         {{#each producto}}
@@ -19,7 +19,7 @@
         <div class="col-md-6 col-lg-4 col-xl-3    mb-5 ">
             <img style="height: 30em; overflow: hidden;" class="shadow mb-2 bg-body rounded" src="{{url_img}}" alt="">
 
-            <h6> # {{genero}}</h6>
+            <h6> #{{genero}}</h6>
 
 
         </div>
@@ -27,13 +27,7 @@
         {{/each}}
     </div>
 </div>
-{{else}}
-<div class="container">
-    <div class="card shadow p-5 m-5">
-        <h4 class="text-center alert alert-danger"> Este usuario todavia no tiene publicaciones</h4>
-    </div>
-</div>
-{{/if}}
+
 <hr>
 <div class="container">
     <div class="row">
@@ -58,3 +52,15 @@
 
 
 </div>
+{{else}}
+<div class="container ">
+    <div class="card shadow p-5 m-5">
+        <h4 class="text-center alert alert-danger mt-5 mb-5"> Lo sentimos, este usuario aúin no está disponible en estos
+            momentos
+        </h4>
+    </div>
+</div>
+<div style="height: 10vh;">
+
+</div>
+{{/if}}

@@ -1,8 +1,3 @@
-// const { response } = require("express");
-
-
-// const { response } = require("express");
-
 (function () {
     window.addEventListener('load', function () {
         var forms = document.getElementsByClassName('needs-validation');
@@ -50,4 +45,5 @@ function activarInput() {
     document.getElementById('activate4').disabled = false
     document.getElementById('activate5').disabled = false
 }
+
 

@@ -11,6 +11,8 @@ router.get('/adminUsuarios', isLoggedIn, authController.adminUsuarios);
 
 router.get('/deleteUsuarios/:id', isLoggedIn, authController.deleteUsuarios)
 
+router.get('/editUsuarios/:id', isLoggedIn, authController.editUsuarios);
+
 router.get("/signup", isNotLoggedIn, (req, res) => {
   res.render("auth/signup");
 });
