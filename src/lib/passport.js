@@ -26,7 +26,7 @@ passport.use('local.signup', new LocalStrategy({
     is_superuser,
     is_artist
   };
-  console.log(newUser)
+  // console.log(newUser)
   newUser.password = await bcrypt.encryptPassword(password);
   // console.log(newUser);
   await pool.beginTransaction(async (error) => {
