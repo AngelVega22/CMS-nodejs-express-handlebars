@@ -66,7 +66,7 @@
       <section class="featured spad">
         <div class="container">
           <div class="row">
-            <div class="section-title">
+            <div class="section-title mb-5">
               <h3>Nuevos ingresos <i class="fas fa-plus-circle"></i></h3>
             </div>
             {{!-- <div class="col-lg-12">
@@ -84,24 +84,24 @@
               </div>
             </div> --}}
           </div>
-          <div class="row featured__filter">
-            <div class="row">
-              {{#each data}}
-              <div class="col-md-6 col-lg-4 col-xl-3    mb-5 ">
 
-                <div class="card-body">
 
-                </div>
-                <img style="height: 30em; overflow: hidden;" class="shadow  bg-body rounded" src="{{url_img}}" alt="">
-                <h3 class="pt-1">{{nombre_artista}}</h3>
-                <h6 class="text-black-50"> #{{genero}}</h6>
+          <div class="row">
+            {{#each data}}
+            {{#if foto }}
+            <div class="col-md-6 col-lg-4 col-xl-3    mb-5 ">
+              <img style="height: 30em; overflow: hidden;" class="shadow  bg-body rounded" src="{{foto}}" alt="">
+              <a class="text-dark text-decoration-none" href="/detalles/{{id}}">
+                <h3 class="pt-1 ">{{first_name}}</h3>
 
-                <details class="text-info">{{descripcion}}</details>
-                <h6>S/.{{precio}} PEN</h6>
-              </div>
 
-              {{/each}}
+
+              </a>
+
             </div>
+            {{/if}}
+            {{/each}}
+          </div>
 
 
 </main>

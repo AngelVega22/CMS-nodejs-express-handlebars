@@ -1,0 +1,48 @@
+<div class="bg-light border ">
+    <div class="container mt-1 ">
+        <div class="d-flex justify-content-start p-3  "> <a class="text-dark text-decoration-none " href="/"> <i
+                    class="fas fa-arrow-left  "></i> &nbsp; &nbsp;<i class="fas fa-home "></i>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                {{#each producto}}
+
+
+
+                <h3 class="pt-1 ">{{first_name}}</h3>
+                <h3 class="pt-1 ">{{last_name}}</h3>
+
+
+
+
+
+                {{/each}}
+            </div>
+
+        </div>
+        <div class="col-md-6"></div>
+
+    </div>
+
+
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        {{#each producto}}
+
+        <div class="col-md-6 col-lg-4 col-xl-3    mb-5 ">
+            <img style="height: 30em; overflow: hidden;" class="shadow  bg-body rounded" src="{{url_img}}" alt="">
+            <h3 class="pt-1 ">{{nombre_artista}}</h3>
+
+
+
+        </div>
+
+        {{/each}}
+    </div>
+</div>

@@ -1,9 +1,9 @@
 const controller = {};
 const pool = require('../connection')
 
-//listar productos
+//listar ARTISTAS
 controller.list = (req, res) => {
-    const producto = pool.query("SELECT * FROM producto", (err, producto) => {
+    const producto = pool.query("SELECT * FROM user where is_superuser= 0 and is_artist = 1 ", (err, producto) => {
         if (err) {
             res.json(err);
         }
@@ -51,5 +51,8 @@ controller.updateProducto = async (req, res) => {
     await pool.query('UPDATE producto set ? WHERE id = ?', [newProduct, id]);
     res.redirect('/miList');
 }
+
+
+
 
 module.exports = controller;

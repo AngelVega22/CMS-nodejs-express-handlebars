@@ -5,9 +5,9 @@ const pool = require('../connection')
 controller.updateUser = async (req, res) => {
 
     const { id } = req.params;
-    const { first_name, last_name, email, user_name } = req.body;
+    const { first_name, last_name, email, user_name, foto } = req.body;
     const updatedUser = {
-        first_name, last_name, email, user_name
+        first_name, last_name, email, user_name, foto
     };
 
     await pool.query('UPDATE user set ? WHERE id = ?', [updatedUser, id]);

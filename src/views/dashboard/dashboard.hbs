@@ -1,175 +1,201 @@
-{{!-- <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> --}}
+{{!-- DASHBOARD ADMIN --}}
 
-  {{#if user.is_superuser}}
+{{#if user.is_superuser}}
 
-  <main class="container-fluid">
-    <div class="bg-light p-3 mb-5">
-      <h4 class="container">Administración</h4>
-    </div>
+<main class="container-fluid">
+  <div class="bg-light p-3 mb-5">
+    <h4 class="container">Administración</h4>
+  </div>
 
-    <div class="container">
+  <div class="container">
 
-      <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
-        <div class=" card-body p-4">
+    <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
+      <div class=" card-body p-4">
 
-          <h4 class="text-center mb-5">Panel de Administración</h4>
-          <div class="row ">
+        <h4 class="text-center mb-5">Panel de Administración</h4>
+        <div class="row ">
 
-            <div class="col-md-4">
-              <div class="card shadow p-3 mb-5 bg-body rounded  p-4 ">
-                <div class="d-flex justify-content-center">
-                  <i class="fas fa-users-cog fa-2x mb-3"></i>
-                </div>
-                <div class="d-flex justify-content-center">
-                  <a class="btn btn-info text-dark text-decoration-none text-center h5 "
-                    href="/adminUsuarios">Administración de
-                    usuarios </a>
-                </div>
+          <div class="col-md-4">
+            <div class="card shadow p-3 mb-5 bg-body rounded  p-4 ">
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-users-cog fa-2x mb-3"></i>
+              </div>
+              <div class="d-flex justify-content-center">
+                <a class="btn btn-info text-dark text-decoration-none text-center h5 "
+                  href="/adminUsuarios">Administración de
+                  usuarios </a>
               </div>
             </div>
-
-            <div class="col-md-4">
-              <div class="card shadow p-3 mb-5 bg-body rounded  p-4 ">
-                <div class="d-flex justify-content-center"> <i class="fas fa-boxes fa-2x mb-3"></i></div>
-
-                <div class="d-flex justify-content-center">
-                  <a class="btn btn-info text-dark text-decoration-none text-center h5 " href="">Administración de
-                    pedidos </a>
-
-
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card shadow p-3 mb-5 bg-body rounded  p-4 ">
-                <div class="d-flex justify-content-center">
-                  <i class="fas fa-mail-bulk fa-2x mb-3"></i>
-                </div>
-                <div class="d-flex justify-content-center">
-
-                  <a class="btn btn-info text-dark text-decoration-none text-center h5 " href="">Administración de
-                    solicitudes
-                  </a>
-
-                </div>
-              </div>
-            </div>
-
           </div>
 
+          <div class="col-md-4">
+            <div class="card shadow p-3 mb-5 bg-body rounded  p-4 ">
+              <div class="d-flex justify-content-center"> <i class="fas fa-boxes fa-2x mb-3"></i></div>
 
+              <div class="d-flex justify-content-center">
+                <a class="btn btn-info text-dark text-decoration-none text-center h5 " href="">Administración de
+                  pedidos </a>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow p-3 mb-5 bg-body rounded  p-4 ">
+              <div class="d-flex justify-content-center">
+                <i class="fas fa-mail-bulk fa-2x mb-3"></i>
+              </div>
+              <div class="d-flex justify-content-center">
+
+                <a class="btn btn-info text-dark text-decoration-none text-center h5 " href="">Administración de
+                  solicitudes
+                </a>
+
+              </div>
+            </div>
+          </div>
 
         </div>
+
+
+
       </div>
-
-
     </div>
 
 
-  </main>
+  </div>
 
 
-  {{else}}
+</main>
 
-  <main class="container-fluid">
-    <div class="bg-light p-3">
-      <h4 class="container">Mi perfil</h4>
 
-    </div>
+{{else}}
+{{!-- DASHBOARD USUARIO --}}
+<main class="container-fluid">
+  <div class="bg-light p-3">
+    <h4 class="container">Mi perfil</h4>
 
-    <div class="container">
+  </div>
 
-      <div class="card m-3 shadow p-3 mb-3 bg-body rounded">
-        <div class=" card-body p-4">
-          <form action="/editUser/{{user.id}}" method="POST">
-            <div class="d-flex justify-content-end">
-              <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+  <div class="container">
 
-                <button type="button" class="btn btn-sm btn-secondary " onclick="activarInput()"><i
-                    class="fas fa-user-edit"></i> Editar</button> &nbsp;
-                <button type="submit" class="btn btn-sm btn-secondary active"><i class="fas fa-save"></i>
-                  Guardar</button>
+    <div class="card m-3 shadow p-3 mb-3 bg-body rounded">
+      <div class=" card-body p-4">
+        <div class="row">
+          <div class="col-md-6">
+            <form action="/editUser/{{user.id}}" method="POST">
+              <div class="d-flex justify-content-end">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                  <button type="button" class="btn btn-sm btn-secondary " onclick="activarInput()"><i
+                      class="fas fa-user-edit"></i> Editar</button> &nbsp;
+                  <button type="submit" class="btn btn-sm btn-secondary active"><i class="fas fa-save"></i>
+                    Guardar</button>
+
+                </div>
+
 
               </div>
 
 
-            </div>
+              <h5 class="card-title mb-5">Información de tu cuenta</h5>
+              {{#if user.is_artist}}
+              <h6 class="card-subtitle mb-2 text-muted mt-2">Agregar url de foto</h6>
 
-            <h5 class="card-title mb-5">Información de tu cuenta</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Nombres</h6>
-            <input name="first_name" id="activate" class="form-control w-25" type="text" value="{{user.first_name}} "
-              disabled>
-            <h6 class="card-subtitle mb-2 mt-1 text-muted">Apellidos</h6>
-            <input name="last_name" id="activate2" class="form-control w-25" type="text" value="{{user.last_name}} "
-              disabled>
-            <h6 class="card-subtitle mb-2 text-muted mt-2">Correo electrónico</h6>
-            <input name="email" id="activate3" class="form-control w-25" type="text" value="{{user.email}} " disabled>
-            <h6 class="card-subtitle mb-2 text-muted mt-2">Username</h6>
-            <input name="user_name" id="activate4" class="form-control w-25" type="text" value="{{user.user_name}} "
-              disabled>
-
-            <div class=" d-flex justify-content-end mt-5"> <a class="text-black-50 fs-6 fw-bolder text-decoration-none"
-                href="/logout">
-                Cerrar
-                sesión</a></div>
-          </form>
-        </div>
-      </div>
-      {{#if user.is_artist}}{{is_artist includeZero=true}}
-      <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
-        <div class=" card-body p-4">
-          <h5 class="card-title mb-5">Administración de cuenta</h5>
+              <input name="foto" id="activate5" class="form-control w-100 mb-2" type="text" value="{{user.foto}} "
+                disabled>
+              {{/if}}
+              <h6 class="card-subtitle mb-2 text-muted">Nombres</h6>
+              <input name="first_name" id="activate" class="form-control w-100" type="text" value="{{user.first_name}} "
+                disabled>
+              <h6 class="card-subtitle mb-2 mt-1 text-muted">Apellidos</h6>
+              <input name="last_name" id="activate2" class="form-control w-199" type="text" value="{{user.last_name}} "
+                disabled>
+              <h6 class="card-subtitle mb-2 text-muted mt-2">Correo electrónico</h6>
+              <input name="email" id="activate3" class="form-control w-100" type="text" value="{{user.email}} "
+                disabled>
+              <h6 class="card-subtitle mb-2 text-muted mt-2">Username</h6>
+              <input name="user_name" id="activate4" class="form-control w-100" type="text" value="{{user.user_name}} "
+                disabled>
 
 
-          <a href="/miList"> <button class="btn btn-secondary" type="button">
-              Ver solicitudes
-            </button> </a>
-
-
-
-          <a href="/miList"> <button class="btn btn-secondary" type="button">
-              Ver publicaciones
-            </button> </a>
-
-
-        </div>
-      </div>
-      {{else}}
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
-            <div class=" card-body p-4">
-              <h5 class="card-title mb-5">Administración de cuenta</h5>
-
-
-              <a href="/miList"> <button class="btn btn-secondary" type="button">
-                  Administrar
-                </button> </a>
-
-
-            </div>
+            </form>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
-            <div class=" card-body p-4">
-              <h5 class="card-title mb-5">Administración de pedidos</h5>
 
-
-              <a href="/miList"> <button class="btn btn-secondary" type="button">
-                  Ver mis pedidos
-                </button> </a>
-
-
+          <div class="col-md-6">
+            {{#if user.is_artist}}
+            <div class="d-flex justify-content-center">
+              {{#if user.foto}}
+              <img src="{{user.foto}}" class="foto mt-5" alt="">
+              {{/if}}
             </div>
+            {{/if}}
+
           </div>
+          <div class=" d-flex justify-content-end mt-5"> <a class="text-black-50 fs-6 fw-bolder text-decoration-none"
+              href="/logout">
+              Cerrar
+              sesión</a></div>
         </div>
       </div>
-
-      {{/if}}
-
     </div>
-    {{! <h2>Section title</h2> }}
+    {{!-- DASHBOARD ARTISTA --}}
+    {{#if user.is_artist}}{{is_artist includeZero=true}}
+    <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
+      <div class=" card-body p-4">
+        <h5 class="card-title mb-5">Administración de cuenta</h5>
 
-  </main>
-  {{/if}}
+
+        <a href="/miList"> <button class="btn btn-secondary" type="button">
+            Ver solicitudes
+          </button> </a>
+
+
+
+        <a href="/miList"> <button class="btn btn-secondary" type="button">
+            Ver publicaciones
+          </button> </a>
+
+
+      </div>
+    </div>
+    {{else}}
+    {{!-- DASHBOARD CLIENTE --}}
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
+          <div class=" card-body p-4">
+            <h5 class="card-title mb-5">Administración de cuenta</h5>
+
+
+            <a href="/miList"> <button class="btn btn-secondary" type="button">
+                Administrar
+              </button> </a>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card m-3 shadow p-3 mb-5 bg-body rounded">
+          <div class=" card-body p-4">
+            <h5 class="card-title mb-5">Administración de pedidos</h5>
+
+
+            <a href="/miList"> <button class="btn btn-secondary" type="button">
+                Ver mis pedidos
+              </button> </a>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{/if}}
+
+  </div>
+  {{! <h2>Section title</h2> }}
+
+</main>
+{{/if}}

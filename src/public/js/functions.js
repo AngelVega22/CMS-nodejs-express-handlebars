@@ -48,4 +48,5 @@ function activarInput() {
     document.getElementById('activate2').disabled = false
     document.getElementById('activate3').disabled = false
     document.getElementById('activate4').disabled = false
+    document.getElementById('activate5').disabled = false
 }
