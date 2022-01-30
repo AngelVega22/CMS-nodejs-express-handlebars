@@ -1,48 +1,60 @@
 <div class="bg-light border ">
     <div class="container mt-1 ">
         <div class="d-flex justify-content-start p-3  "> <a class="text-dark text-decoration-none " href="/"> <i
-                    class="fas fa-arrow-left  "></i> &nbsp; &nbsp;<i class="fas fa-home "></i>
+                    class="fas fa-arrow-left  "></i> &nbsp; &nbsp;<i class="fas fa-home "></i> </a>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                {{#each producto}}
 
-
-
-                <h3 class="pt-1 ">{{first_name}}</h3>
-                <h3 class="pt-1 ">{{last_name}}</h3>
-
-
-
-
-
-                {{/each}}
-            </div>
-
-        </div>
-        <div class="col-md-6"></div>
-
+<div class="bg-light p-3">
+    <div class="container">
+        <h4>Ultimas publicaciones</h4>
     </div>
-
-
 </div>
-
+{{#if producto}}
 <div class="container mt-5">
     <div class="row">
         {{#each producto}}
 
         <div class="col-md-6 col-lg-4 col-xl-3    mb-5 ">
-            <img style="height: 30em; overflow: hidden;" class="shadow  bg-body rounded" src="{{url_img}}" alt="">
-            <h3 class="pt-1 ">{{nombre_artista}}</h3>
+            <img style="height: 30em; overflow: hidden;" class="shadow mb-2 bg-body rounded" src="{{url_img}}" alt="">
 
+            <h6> # {{genero}}</h6>
 
 
         </div>
 
         {{/each}}
     </div>
+</div>
+{{else}}
+<div class="container">
+    <div class="card shadow p-5 m-5">
+        <h4 class="text-center alert alert-danger"> Este usuario todavia no tiene publicaciones</h4>
+    </div>
+</div>
+{{/if}}
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="m-5 ">
+                <h4 id="name"></h4>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis dolores soluta beatae hic quae
+                    optio ea veritatis alias, dolorum enim neque sint excepturi, sapiente nisi vero unde similique
+                    repellat earum.</p>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+
+            <div class="card p-5 m-5 shadow">
+                <button class="btn btn-info"> Comprar </button>
+            </div>
+        </div>
+
+    </div>
+
+
 </div>

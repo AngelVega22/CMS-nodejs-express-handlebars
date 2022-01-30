@@ -50,3 +50,4 @@ function activarInput() {
     document.getElementById('activate4').disabled = false
     document.getElementById('activate5').disabled = false
 }
+
