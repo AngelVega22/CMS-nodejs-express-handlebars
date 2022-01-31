@@ -27,16 +27,15 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `precio` float NOT NULL,
   `id_user` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla proyectotec.producto: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla proyectotec.producto: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
 INSERT INTO `producto` (`id`, `nombre_artista`, `descripcion`, `url_img`, `genero`, `precio`, `id_user`) VALUES
-	(7, 'Bob Marley', 'musica reggae', 'https://images.pexels.com/photos/894156/pexels-photo-894156.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'raggea', 900, 7),
-	(14, 'Shakira', 'musica pop', 'https://images.pexels.com/photos/4415532/pexels-photo-4415532.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'pop', 900, 9),
-	(15, 'Muse', 'Banda de rock', 'https://images.pexels.com/photos/6173817/pexels-photo-6173817.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'Rock', 9000, 9),
-	(16, 'Simple plan', 'Rock punk', 'https://images.pexels.com/photos/2231751/pexels-photo-2231751.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'Rock punk', 800, 16),
-	(17, 'Bob Marley', 'musica', 'https://images.pexels.com/photos/2231751/pexels-photo-2231751.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 'raggea', 1, 24);
+	(1, 'Canto ', 'canto para cumpleaños', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/adele-1636963562.jpg', 'Canto ', 900, 32),
+	(3, 'otro', 'musica', 'https://nypost.com/wp-content/uploads/sites/2/2021/11/adele-one-night-only-3.jpg?quality=90&strip=all&w=682', 'otro', 1222, 32),
+	(4, 'otro', 'muse', 'https://cdn-3.expansion.mx/dims4/default/4b0be03/2147483647/strip/true/crop/1000x1250+0+0/resize/1200x1500!/format/webp/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F99%2F55%2Fd5c0b9d44aa48fb4c7b67c9efb83%2Fadele.jpg', 'Saludo', 1299, 32),
+	(5, 'otro', 'otro', 'http://www.zeleb.mx/sites/default/files/styles/news_main_image/public/aleks_syntek_revelo_que_usa_lentes_desde_muy_joven..jpg?itok=14SX-K06', 'otro', 700, 37);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 
 -- Volcando estructura para tabla proyectotec.sessions
@@ -47,12 +46,10 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   PRIMARY KEY (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla proyectotec.sessions: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla proyectotec.sessions: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-	('8nvoXGYqXCKiJOSVWvcxWYaH2ezcWhWy', 1643160610, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{"user":6}}'),
-	('D-o6mgs8SmTHmmghCEJ1YZyQp7Y8zrsq', 1643242319, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{"user":1}}'),
-	('c3qGPS_j9jwXcZ8WE5yKC0oUFLC-C-FE', 1643165248, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{}}');
+	('Fk6DrNzRkxMaEQgxnL8ToxQF1aAPuIue', 1643683731, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{}}');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 
 -- Volcando estructura para tabla proyectotec.user
@@ -68,27 +65,20 @@ CREATE TABLE IF NOT EXISTS `user` (
   `is_superuser` int(11) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   `is_artist` int(11) DEFAULT '0',
+  `foto` longtext,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla proyectotec.user: ~13 rows (aproximadamente)
+-- Volcando datos para la tabla proyectotec.user: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `last_login`, `is_active`, `date_joined`, `password`, `is_superuser`, `user_name`, `is_artist`) VALUES
-	(1, 'Angel ', 'Vega ', 'admin@gmail.com', '2022-01-21 08:27:33', 1, '2022-01-21 08:27:33', '$2a$10$I7JZS.cexfDGI8XxYqAPI.t9XjFGacm.FqjdMGk7vjvVSoV3t.3EG', 1, 'admin', 0),
-	(7, 'Juan  ', 'Gomez    ', 'prueba@prueba.com    ', '2022-01-22 20:45:02', 1, '2022-01-22 20:45:02', '$2a$10$zJSZGlWEeyYUcyOvufBF6eJrhgxTS4cAYEzfsuHBP9hbw/ajKeGsG', 0, 'JuanP   ', 0),
-	(9, 'Primer', 'Apellido', 'a@a.com  ', '2022-01-23 13:03:06', 1, '2022-01-23 13:03:06', '$2a$10$hDCGcK9IbXsksCp.gZ8dyOLdncCJq0QQmVmm5UGevCJldYnTUB3DG', 0, 'Usuario primer', 1),
-	(14, 'angel', 'Vega', 'b@b.com', '2022-01-23 13:35:40', 1, '2022-01-23 13:35:40', '$2a$10$N2IlUnKZW2nYDpd2zryci.ahwQbB8SJY5F6Lwcec8rU7AS7nB5ZgS', 0, 'avega', 0),
-	(15, 'Angel', 'Vega', 'c@c.com', '2022-01-23 13:36:31', 1, '2022-01-23 13:36:31', '$2a$10$lqS72qkIuYgLsNJity6vm.y1DZmbcNdMnLRDag0PNboaOVKTxomym', 0, 'avega', 0),
-	(16, 'Angel', 'Vega', 'd@d.com', '2022-01-23 13:38:10', 1, '2022-01-23 13:38:10', '$2a$10$HyBGtc5n3jpJ2lXO5kQPrOfeIuQ.tFkI/Q3zGAQWEREIO2aYfpWG.', 0, 'avega', 1),
-	(17, 'Angel', 'Vega', 'e@e.com', '2022-01-23 13:40:24', 1, '2022-01-23 13:40:24', '$2a$10$B2rnOEmwL00wjCf3GaXNre4yZ.HaIMcOHpzP0EQZAB26qJnjQAgYW', 0, 'avega', 1),
-	(18, 'Angel', 'Vega', 'f@f.com', '2022-01-23 13:45:26', 1, '2022-01-23 13:45:26', '$2a$10$rnRSsA5/uEy/XXcZ.y6DGu44n6ITP1QQPo.C2hg8WM1smlY1QwzUi', 0, 'avega', 1),
-	(19, 'Angel', 'Vega', 'g@g.com', '2022-01-23 13:46:23', 1, '2022-01-23 13:46:23', '$2a$10$3jpy7TGUf0m/Ew4wQvmT0eTrYd3nxV8ZtI/Bdl./Ji7NiE5rVK/Vy', 0, 'avega', 0),
-	(20, 'Angel', 'Vega', 'h@h.com', '2022-01-23 14:19:40', 1, '2022-01-23 14:19:40', '$2a$10$FvflwCUw4tljiNjq58qIjeiMV6Fj6maJZZG/mdwT/R2Bv2G8m9Fbu', 0, 'avega', 0),
-	(21, 'CLIENTE', 'CLIENTE', 'i@i.com', '2022-01-23 15:45:29', 1, '2022-01-23 15:45:29', '$2a$10$4eMJ1at7i1nzDNFxR7R61.1FsqV5n/G7iDai6BNDZUR.ok2RPqAf.', 0, 'avega', 0),
-	(22, 'ARTISTA', 'ARTISTA', 'j@j.com', '2022-01-23 15:46:01', 1, '2022-01-23 15:46:01', '$2a$10$nPeSnS1kGu1xudvH7A4WCuQyXLJk8jD4mvVvSHgFZDUCbSNu.rjLe', 0, 'avega', 1),
-	(23, 'Angel', 'Vega', 'k@k.com', '2022-01-24 18:38:44', 1, '2022-01-24 18:38:44', '$2a$10$8iBzyePVEiYQ.YEl8tCPXeFV0bx5IBZHR0s7krV/SXjelY1T9P0dq', 0, 'avega', 0),
-	(24, 'Joel', 'Minaya', 'minaya@minaya.com  ', '2022-01-25 00:07:56', 1, '2022-01-25 00:07:56', '$2a$10$1MPUsScM/B8CdZ3xReae9uwFpb1624eUBH9uMCtuqcPBdJR2plVVW', 0, 'misterminaya  ', 1),
-	(25, 'Rebeca', 'Ruiz', 'rebeca@rebeca.com', '2022-01-25 00:10:46', 1, '2022-01-25 00:10:46', '$2a$10$Thi6bQmnJ19P8J4T1U1oAe6mqAB8qamU/nX89LB2gqN5f5OLhFc6.', 0, 'rebe', 0);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `last_login`, `is_active`, `date_joined`, `password`, `is_superuser`, `user_name`, `is_artist`, `foto`) VALUES
+	(1, 'Angel ', 'Vega ', 'admin@gmail.com', '2022-01-21 08:27:33', 1, '2022-01-21 08:27:33', '$2a$10$I7JZS.cexfDGI8XxYqAPI.t9XjFGacm.FqjdMGk7vjvVSoV3t.3EG', 1, 'admin', 0, NULL),
+	(32, 'Adele   ', 'Blue Atkins', 'artista1@gmail.com          ', '2022-01-29 15:31:39', 1, '2022-01-29 15:31:39', '$2a$10$SbIxV2cMSkCMKRWndvRpq.BBa/FuIvQYUnu43zxRF.6/sr0ZpMTYa', 0, 'Adele ', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgdS47d1ZWjD0VS_dkQcmQroPwhdQXqJPdSA&usqp=CAU  '),
+	(33, 'Jared ', 'Leto ', 'artista2@gmail.com    ', '2022-01-29 16:36:50', 1, '2022-01-29 16:36:50', '$2a$10$GNGZoZXuuPURW3vpuq9AKu2leNcP1TeB0h5kaKbUE28zO.4KzwAIW', 0, 'Jared Leto', 1, 'https://www.alohacriticon.com/wp-content/uploads/2003/07/jared-leto-fotos.jpg '),
+	(36, 'Carlos ', 'Sadness ', 'artista4@gmail.com    ', '2022-01-29 17:58:21', 1, '2022-01-29 17:58:21', '$2a$10$Tb7sRFeCLvAgPv4zYHNRSOvYoidWppRg9xrVuXL4hqcFCLLQAAxlW', 0, 'Carlos Sadness', 1, 'https://vanidad.es/images/carpeta_gestor/archivos/2019/06/28/CSADNESS_lalomar1.jpg '),
+	(37, 'Alek  ', 'Syntek  ', 'artista5@gmail.com  ', '2022-01-30 11:18:23', 1, '2022-01-30 11:18:23', '$2a$10$M7Q0ZPcSywRFr2W2tE1LH.AjY8rjkQtIDhvrzkieIADnhZfXLrfrS', 0, 'Alek Syntek', 1, ' https://ca-times.brightspotcdn.com/dims4/default/0ee6ae1/2147483647/strip/true/crop/1360x2048+0+0/resize/840x1265!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F96%2F66%2F34bab639a42f440e768564ffd78c%2Fsdut-el-cantante-mexicano-aleks-synt-20160823 '),
+	(38, 'Angel     ', 'Vega     ', 'avega@gmail.com     ', '2022-01-30 17:45:52', 1, '2022-01-30 17:45:52', '$2a$10$T9bqZml7Cti/9AONb0.xeuT1dWF2b3QJSPhEBC62S9aujxa.BlJ2S', 0, 'Avega', 0, '     '),
+	(41, 'usuario', 'usuario', 'usuario@usuario.com', '2022-01-30 21:27:43', 1, '2022-01-30 21:27:43', '$2a$10$SK5.7rMWViBu7NpaR/WI2.aa/.KuPV1VKBBZCvDIzR9ji2no56Wfm', 0, 'usuario', 0, NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
