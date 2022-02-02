@@ -90,9 +90,15 @@
             {{#each data}}
             {{#if foto }}
             <div class="col-md-6 col-lg-4 col-xl-3    mb-5 ">
-              <img style="height: 30em; overflow: hidden;" class="shadow  bg-body rounded" src="{{foto}}" alt="">
+
+
+              <video width="250" height="450" controls autoplay loop>
+                <source src="{{foto}}" type="video/mp4">
+              </video>
+
+
               <a class="text-dark text-decoration-none" href="/detalles/{{id}}">
-                <h3 class="pt-1 ">{{user_name}}</h3>
+                <h3 class="pt-2 ">{{user_name}}</h3>
 
 
               </a>

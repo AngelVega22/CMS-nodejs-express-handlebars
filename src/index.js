@@ -5,6 +5,7 @@ const path = require("path");
 const session = require("express-session");
 const MySQLStore = require('express-mysql-session');
 const { database } = require("./config");
+const upload = require('express-fileupload')
 //Inicializar
 const app = express();
 require("./lib/passport");
@@ -42,6 +43,7 @@ app.use((req, res, next) => {
   app.locals.res = res;
   next();
 })
+app.use(upload())
 //Routes
 app.use(require('./routes/dashboardRoute'));
 app.use(require("./routes/indexRoute"));
