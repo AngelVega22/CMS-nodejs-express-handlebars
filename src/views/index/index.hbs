@@ -1,3 +1,10 @@
+{{#if user.is_superuser}}
+<div class="bg-admin">
+  <h1 class="text-center text-white position-absolute top-50 start-50 translate-middle">Bienvenido
+    {{user.first_name}}{{user.last_name}}
+  </h1>
+</div>
+{{else}}
 <div class="header__top">
   <div class="container">
     <div class="row">
@@ -110,3 +117,4 @@
 
 
 </main>
+{{/if}}

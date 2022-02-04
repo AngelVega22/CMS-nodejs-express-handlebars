@@ -767,3 +767,7 @@ ol {
 	border-radius: 10px;
 	
 }
+.bg-admin{
+	background-image: url(../images/bg-system.jpg);
+	height: 80vh;
+}
