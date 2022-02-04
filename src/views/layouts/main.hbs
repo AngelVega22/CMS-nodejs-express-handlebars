@@ -52,7 +52,8 @@
 
             </li>
             <li class="nav-item">
-              <a class="btn  text-white text-decoration-none text-center h5 m-3 " href=""> <i class="fas fa-boxes "></i>
+              <a class="btn  text-white text-decoration-none text-center h5 m-3 " href=""> <i
+                  class="fas fa-portrait"></i>
                 Administración de
                 publicaciones </a>
             </li>
@@ -74,7 +75,8 @@
 
   {{/if}}
   {{{body}}}
-
+  {{#if user.is_superuser}}
+  {{else}}
   <footer class="footer spad">
     <div class="container">
       <div class="row">
@@ -138,6 +140,7 @@
       </div>
     </div>
   </footer>
+  {{/if}}
   <!--SCRIPTS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
