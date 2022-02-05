@@ -13,7 +13,9 @@
         });
     }, false);
 })();
-
+$(document).ready(function () {
+    $('#table_id').DataTable();
+});
 
 // const url = 'https://famososartistas.herokuapp.com/api/artistas'
 

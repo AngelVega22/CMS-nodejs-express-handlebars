@@ -2,33 +2,16 @@ const express = require("express");
 const router = express.Router();
 const { isLoggedIn } = require('../lib/auth');
 const pool = require('../connection')
-
+const adminController = require('../controllers/adminController')
 
 router.get('/dashboard', isLoggedIn, async (req, res) => {
     res.render('dashboard/dashboard');
 });
 
-router.post('/upload/:id', isLoggedIn, (req, res) => {
+router.get('/adminPublicaciones', isLoggedIn, adminController.adminPublicaciones)
 
-    if (req.files) {
-        console.log(req.files)
-        var file = req.files.file
-        var filename = file.name
-        console.log(filename)
+router.post('/upload/:id', isLoggedIn, adminController.upload)
 
-        file.mv('./src/public/uploads/' + filename, function (err) {
-            if (err) {
-                res.send(err)
-            } else {
-                const { id } = req.params;
-                const foto = "/uploads/" + filename
-                console.log(foto)
-                pool.query('UPDATE user set foto = ? WHERE id = ?', [foto, id])
-                res.redirect('/dashboard');
 
-            }
-        })
-    }
-})
 
 module.exports = router;

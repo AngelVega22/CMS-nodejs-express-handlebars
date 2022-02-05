@@ -15,7 +15,7 @@ controller.list = (req, res) => {
 //Listar productos en el dashboard
 controller.miList = async (req, res) => {
     const data = await pool.query("SELECT * FROM producto WHERE id_user =? ", [req.user.id]);
-    res.render('partials/miList', { data })
+    res.render('partials/productos/miList', { data })
 }
 //Eliminar producto/servicio
 controller.deleteProducto = async (req, res) => {

@@ -31,4 +31,11 @@ controller.editUsuarios = async (req, res) => {
     // console.log(user)
     res.render('partials/admin/editUsuarios', { user: user[0] })
 }
+
+
+
+//===ADMIN==//
+
+
+
 module.exports = controller;
