@@ -1,26 +1,34 @@
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+<header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow-sm">
+
   {{#if user.is_superuser}}
-  <div class="container"><a class="navbar-brand col-md-3 col-lg-2  bg-dark text-end " href="/dashboard"> Sistema de
+  <div class="container"><a class=" col-md-3 col-lg-2  bg-light text-end text-decoration-none text-dark fw-bold "
+      href="/dashboard">
+      Sistema de
       Administración</a></div>
 
   {{else}}
 
+  {{>inicio/menu}}
 
-  <div class="container"><a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 " href="/"> FAMOSOS</a></div>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+
+
+  {{!-- <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
     data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> --}}
 
   {{/if}}
+
   {{#if user}}
+
 
   <!-- Example single danger button -->
   <div class="btn-group">
-    <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+
+    {{#if user.is_superuser}}
+    <button class=" m-2 bg-light p-1 shadow " data-bs-toggle="dropdown" aria-expanded="false">
       Bienvenido : {{user.user_name}}
     </button>
-    {{#if user.is_superuser}}
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="/dashboard">Panel de control</a></li>
       <li><a class="dropdown-item" href="/adminUsuarios">Usuarios</a></li>
@@ -37,6 +45,11 @@
   </div>
 
   {{else}}
+  {{#if user.is_artist}}
+  {{else}}
+  <button class=" m-2 bg-dark btn btn-dark p-2 shadow " data-bs-toggle="dropdown" aria-expanded="false">
+    Bienvenido : {{user.user_name}}
+  </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="/dashboard">Mi perfil</a></li>
 
@@ -46,15 +59,17 @@
     <li> <a class="nav-link px-3" href="/logout">Salir</a>
     </li>
   </ul>
+  {{/if}}
+
   </div>
   {{/if}}
   <div class="navbar-nav"></div>
 
-
   </div>
 
   {{else}}
-  <div class="navbar-nav">
+
+  {{!-- <div class="navbar-nav">
 
     <div class="nav-item text-nowrap">
 
@@ -75,51 +90,83 @@
       </a>
     </div>
 
-  </div>
+  </div> --}}
   {{/if}}
+
+  {{#if user.is_artist}}
+  <nav class="navbar navbar-light">
+    <div class="container-fluid">
+      <a class="h4 text-dark text-decoration-none" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" data-bs-backdrop="false" data-bs-scroll="true" tabindex="-1"
+        id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <h5 class="offcanvas-title " id="offcanvasNavbarLabel">Menú</h5>
+
+        </div>
+        <hr>
+        <h6 class="p-2 text-end">Bienvenido <strong>{{user.user_name}} </strong> </h6>
+        <div class="offcanvas-body">
+          <!---->
+          <div>
+            {{!-- <h5 class=" text-start">Administración</h5> --}}
+
+            <hr>
+
+
+            <div class="text-end mb-4 ">
+              <a href="/dashboard" class="fw-bold h6 text-dark text-decoration-none">
+                Perfil <i class="fas fa-user"></i>
+
+              </a>
+            </div>
+            <div class="text-end mb-4 ">
+              <a href="/categorias " class="fw-bold h6 text-dark text-decoration-none">
+                categorias
+                <i class="fas fa-building-columns"></i>
+              </a>
+            </div>
+            <div class="text-end mb-4 ">
+              <a href="/admin_cursos " class="fw-bold h6 text-dark text-decoration-none">
+                Cursos
+                <i class="fas fa-book"></i>
+              </a>
+            </div>
+
+            <div class=" d-flex justify-content-end mt-5"> <a class="text-black-50 fs-6 fw-bolder text-decoration-none"
+                href="/logout">
+                Cerrar
+                sesión</a></div>
+
+
+
+            <!---->
+
+          </div>
+        </div>
+      </div>
+
+
+  </nav>
+  {{/if}}
+
+
+
+
 </header>
+
 
 <header class="header">
 
+
   <div class="container">
-    {{!-- <div class="row">
-      <div class="col-lg-3">
-        <div class="header__logo">
-          <a href="./index.html"><img src="img/logo.png" alt="" /></a>
-        </div>
-      </div>
-      <div class="col-lg-6"> --}}
-        {{!-- <nav class="header__menu">
-          <ul>
-            <li class="active"><a href="./salsa.html">Salsa</a></li>
-            <li><a href="./rock.html">Rock</a></li>
-            <li><a href="./cumbia.html">Cumbia</a></li>
-            <li><a href="./merengue.html">Merengue</a></li>
-            <li><a href="./mariachis.html">Mariachis</a></li>
-          </ul>
-        </nav>
-      </div> --}}
-      {{!-- <div class="col-lg-3">
-        <div class="header__cart">
-          <ul>
-            <li><a href="#"> --}}
-                {{!--
-                <FontAwesomeIcon icon={faHeart} /><span>1</span> --}}
-                {{!--
-              </a></li> --}}
-            {{!-- <li><a href="#"> --}}
-                {{!--
-                <FontAwesomeIcon icon={faShoppingCart} /><span>3</span> --}}
-                {{!--
-              </a></li>
-          </ul> --}}
-          {{!-- <div class="header__cart__price">item: <span>$150.00</span></div> --}}
-          {{!--
-        </div>
-      </div>
-    </div>
-    <div class="humberger__open">
-      <i class="fa fa-bars"></i>
-    </div> --}}
+
+
   </div>
+
 </header>

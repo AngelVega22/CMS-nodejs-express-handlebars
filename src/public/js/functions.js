@@ -46,6 +46,15 @@ function activarInput() {
     document.getElementById('activate3').disabled = false
     document.getElementById('activate4').disabled = false
     document.getElementById('activate5').disabled = false
+    document.getElementById('activate6').disabled = false
+    document.getElementById('activate7').disabled = false
+    document.getElementById('activate8').disabled = false
+    document.getElementById('activate9').disabled = false
+    document.getElementById('activate10').disabled = false
 }
 
+
+const categoria = document.getElementById('categoria').innerHTML
+// console.log(categoria)
+document.getElementById('cursoCategoria').innerHTML = "Cursos de " + categoria;
 

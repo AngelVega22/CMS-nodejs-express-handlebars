@@ -1,3 +1,4 @@
+{{#if is_superuser }}
 <div class="col-md-4 mx-auto">
 
     <div class="card shadow p-3 mb-5 mt-5 bg-body rounded">
@@ -115,3 +116,5 @@
 <div class="d-flex justify-content-center"> <a class="text-dark text-decoration-none mb-5" href="/adminUsuarios"> <i
             class="fas fa-undo-alt "></i> Regresar </a>
 </div>
+{{/if}}
+{{>404}}

@@ -1,25 +1,28 @@
-<div class="container p-4">
+{{!-- <div class="container p-4">
     <div class="row">
         <div class="col-md-4 mx-auto">
 
             <div class="card shadow p-3 mb-5 bg-body rounded">
                 <div class="card-body  ">
                     <h5 class="text-center mb-4 alert alert-secondary">Ingresa los datos correspondientes</h5>
+
+
                     <form action=" /addProducto" method="POST">
                         <div class="form-outline mb-4">
-                            <input type="text" name="nombre_artista" class="form-control"
-                                placeholder="Nombre de servicio" autofocus required>
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre de servicio"
+                                autofocus required>
 
                         </div>
                         <div class="form-outline mb-4">
                             <textarea style="resize: none;" name="descripcion" rows="2" class="form-control"
                                 placeholder="Descripcion" required></textarea>
                         </div>
-                        <div class="form-outline mb-4">
+                        {{!-- <div class="form-outline mb-4">
                             <input type="url" name="url_img" class="form-control" placeholder="URL de tu foto" required>
-                        </div>
+                        </div> --}}
                         <div class="form-outline mb-4">
-                            <input type="text" name="genero" class="form-control" placeholder="Genero" required>
+                            <input type="text" name="id_categoria" class="form-control" placeholder="id_categoria"
+                                required>
                         </div>
                         <div class="form-outline mb-4">
                             <input type="number" min="0" max="10000" step="any" name="precio" class="form-control"
@@ -42,4 +45,4 @@
         </div>
 
     </div>
-</div>
+</div> --}}

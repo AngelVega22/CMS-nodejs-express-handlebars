@@ -48,8 +48,8 @@ app.use(upload())
 app.use(require('./routes/dashboardRoute'));
 app.use(require("./routes/indexRoute"));
 app.use(require("./routes/authRoute"));
-app.use(require("./routes/productsRoute"));
-
+app.use(require("./routes/categoriesRoutes"));
+app.use(require('./routes/coursesRoutes'));
 
 app.use(express.static(path.join(__dirname, "public")));
 //Starting

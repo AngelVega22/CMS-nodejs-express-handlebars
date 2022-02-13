@@ -1,0 +1,102 @@
+{{#if user.is_artist}}
+
+<div class="container">
+    <div class="card m-3 shadow p-3 mt-5 mb-5 bg-body rounded">
+        <div class="d-flex justify-content-end">
+            <div class="btn-group  col-2 ">
+                <a href="/" class="btn btn-light btn-sm active " aria-current="page">Inicio </a>
+                <a href="/dashboard" class="btn btn-secondary btn-sm ">Perfil <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </div>
+
+        <h4 class="card-title mb-2 text-center fw-bold">Todos los cursos </h4>
+        <hr>
+        {{!-- <div class="d-flex justify-content-center"> <a class="text-decoration-none btn btn-warning active"
+                href="/addCategoria">Agregar nueva categoria</a> </div> --}}
+        <div class=" card-body p-4">
+
+
+            <div class="row">
+
+
+
+                <table id="table_id" class="table display shadow-sm">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Id</th>
+
+                            <th scope="col">Nombre</th>
+                            <th scope="col"> Descripcion</th>
+                            <th scope="col"> Categoria</th>
+                            <th scope="col"> Inicio</th>
+
+                            <th scope="col"> Horario</th>
+
+                            <th scope="col"> Duración</th>
+
+                            <th scope="col"> Precio</th>
+                            <th scope="col"> Promoción</th>
+
+                            <th scope="col"> Estado</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {{#each data}}
+                            {{!-- <td><img width="50" class="rounded-pill img-fluid" src="{{foto}}" alt=""></td> --}}
+                            <td>{{id_c}}</td>
+                            <td>{{nombre_c}}</td>
+
+                            <td>
+                                <details>{{descripcion_c}} </details>
+                            </td>
+                            <td class="text-muted">
+                                <a class="text-decoration-none text-white btn bg-principal"
+                                    href="/editCategoria/{{id}}">
+                                    {{nombre}}</a>
+                            </td>
+                            <td>{{inicio}}</td>
+                            <td>{{horario}}</td>
+
+                            <td>{{duracion}}</td>
+                            <td>{{precio}}</td>
+                            <td> {{#if is_promo}}
+                                <p class="  alert-warning">Activa</p> {{else}} <p class="  alert-danger">inactiva</p>
+                                {{/if}}
+                            </td>
+                            <td> {{#if estado_curso}}
+                                <p class="  alert-warning">Activo</p> {{else}} <p class="  alert-danger">inactivo</p>
+                                {{/if}}
+                            </td>
+                            <td>
+                                <a class="btn btn-secondary" href="/editCurso/{{id_c}}">
+                                    Editar
+                                </a>
+
+
+
+                            </td>
+                        </tr> {{else}}
+                        <div class="col-md-4 mb-5 mx-auto">
+                            <div class="card card-body text-center">
+                                <p>No tienes categorias todavia.</p>
+                                <a class="text-dark text-decoration-none" href="/addCategoria">¡Crea una!</a>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{{else}}
+{{>404}}
+
+{{/if}}

@@ -1,0 +1,43 @@
+{{#if user.is_artist }}
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body  ">
+                    <h5 class="text-center mb-4 alert alert-secondary">Ingresa la nueva categoria</h5>
+
+
+                    <form action=" /addCategoria" method="POST">
+                        <div class="form-outline mb-4">
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre de categoria"
+                                autofocus required>
+
+                        </div>
+                        <div class="form-outline mb-4">
+                            <textarea style="resize: none;" name="descripcion" rows="2" class="form-control"
+                                placeholder="Descripcion" required></textarea>
+                        </div>
+
+                        <div class="form-outline mb-4 d-flex justify-content-center">
+                            <br>
+                            <button class="btn btn-primary btn-block ">
+                                Agregar
+                            </button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center"> <a class="text-dark text-decoration-none mb-3" href="/categorias">
+                <i class="fas fa-undo-alt "></i> Regresar </a>
+        </div>
+
+    </div>
+</div>
+{{else}}
+{{>404}}
+{{/if}}

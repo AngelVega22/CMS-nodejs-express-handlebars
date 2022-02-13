@@ -13,32 +13,52 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Volcando estructura de base de datos para proyectotec
-CREATE DATABASE IF NOT EXISTS `proyectotec` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `proyectotec`;
+-- Volcando estructura de base de datos para escuela
+CREATE DATABASE IF NOT EXISTS `escuela` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `escuela`;
 
--- Volcando estructura para tabla proyectotec.producto
-CREATE TABLE IF NOT EXISTS `producto` (
+-- Volcando estructura para tabla escuela.categoria
+CREATE TABLE IF NOT EXISTS `categoria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_artista` varchar(255) NOT NULL,
-  `descripcion` varchar(255) NOT NULL,
-  `url_img` varchar(255) NOT NULL,
-  `genero` varchar(255) NOT NULL,
-  `precio` float NOT NULL,
-  `id_user` int(11) DEFAULT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `descripcion` longtext,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla proyectotec.producto: ~2 rows (aproximadamente)
-/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` (`id`, `nombre_artista`, `descripcion`, `url_img`, `genero`, `precio`, `id_user`) VALUES
-	(1, 'Canto ', 'canto para cumpleaños', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/adele-1636963562.jpg', 'Canto ', 900, 32),
-	(3, 'otro', 'musica', 'https://nypost.com/wp-content/uploads/sites/2/2021/11/adele-one-night-only-3.jpg?quality=90&strip=all&w=682', 'otro', 1222, 32),
-	(4, 'otro', 'muse', 'https://cdn-3.expansion.mx/dims4/default/4b0be03/2147483647/strip/true/crop/1000x1250+0+0/resize/1200x1500!/format/webp/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F99%2F55%2Fd5c0b9d44aa48fb4c7b67c9efb83%2Fadele.jpg', 'Saludo', 1299, 32),
-	(5, 'otro', 'otro', 'http://www.zeleb.mx/sites/default/files/styles/news_main_image/public/aleks_syntek_revelo_que_usa_lentes_desde_muy_joven..jpg?itok=14SX-K06', 'otro', 700, 37);
-/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
+-- Volcando datos para la tabla escuela.categoria: ~2 rows (aproximadamente)
+/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
+INSERT INTO `categoria` (`id`, `nombre`, `foto`, `descripcion`) VALUES
+	(1, ' Marketing ', '/uploads/bg.jpg', ' Marketing Digital y neuromarketing'),
+	(2, 'Desarrollo web ', '/uploads/bg-system.jpg', 'Diseño y desarrollo web '),
+	(3, 'Publicidad', NULL, 'Publicidad');
+/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 
--- Volcando estructura para tabla proyectotec.sessions
+-- Volcando estructura para tabla escuela.curso
+CREATE TABLE IF NOT EXISTS `curso` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_c` varchar(255) NOT NULL,
+  `descripcion_c` varchar(255) NOT NULL,
+  `foto_c` varchar(255) DEFAULT NULL,
+  `precio` float NOT NULL,
+  `id_categoria` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+-- Volcando datos para la tabla escuela.curso: ~4 rows (aproximadamente)
+/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
+INSERT INTO `curso` (`id`, `nombre_c`, `descripcion_c`, `foto_c`, `precio`, `id_categoria`) VALUES
+	(14, 'Neuromarketing', 'Neuromarketing interesante', NULL, 120, 1),
+	(15, 'Wordpress', 'Wordpress', NULL, 121, 2),
+	(16, 'Programación web', 'Programación web', NULL, 980, 2),
+	(17, 'Wordpress avanzado', 'Wordpress avanzado', NULL, 100, 2),
+	(18, 'PHP', 'PHP', NULL, 121, 2),
+	(19, 'HTML', 'HTML', NULL, 700, 2),
+	(20, 'Marketing digital avanzado', 'Marketing digital avanzado', NULL, 239, 1),
+	(21, 'Introduccion a la publicidad', 'Introduccion a la publicidad', NULL, 120, 3);
+/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
+
+-- Volcando estructura para tabla escuela.sessions
 CREATE TABLE IF NOT EXISTS `sessions` (
   `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `expires` int(11) unsigned NOT NULL,
@@ -46,13 +66,13 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   PRIMARY KEY (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla proyectotec.sessions: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla escuela.sessions: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-	('Fk6DrNzRkxMaEQgxnL8ToxQF1aAPuIue', 1643683731, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{}}');
+	('l8n2TuPPOqaeXiKzIjT6p8draR_ENXvD', 1644558750, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{"user":32}}');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 
--- Volcando estructura para tabla proyectotec.user
+-- Volcando estructura para tabla escuela.user
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50) NOT NULL,
@@ -67,18 +87,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `is_artist` int(11) DEFAULT '0',
   `foto` longtext,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla proyectotec.user: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla escuela.user: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `last_login`, `is_active`, `date_joined`, `password`, `is_superuser`, `user_name`, `is_artist`, `foto`) VALUES
-	(1, 'Angel ', 'Vega ', 'admin@gmail.com', '2022-01-21 08:27:33', 1, '2022-01-21 08:27:33', '$2a$10$I7JZS.cexfDGI8XxYqAPI.t9XjFGacm.FqjdMGk7vjvVSoV3t.3EG', 1, 'admin', 0, NULL),
-	(32, 'Adele   ', 'Blue Atkins', 'artista1@gmail.com          ', '2022-01-29 15:31:39', 1, '2022-01-29 15:31:39', '$2a$10$SbIxV2cMSkCMKRWndvRpq.BBa/FuIvQYUnu43zxRF.6/sr0ZpMTYa', 0, 'Adele ', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgdS47d1ZWjD0VS_dkQcmQroPwhdQXqJPdSA&usqp=CAU  '),
-	(33, 'Jared ', 'Leto ', 'artista2@gmail.com    ', '2022-01-29 16:36:50', 1, '2022-01-29 16:36:50', '$2a$10$GNGZoZXuuPURW3vpuq9AKu2leNcP1TeB0h5kaKbUE28zO.4KzwAIW', 0, 'Jared Leto', 1, 'https://www.alohacriticon.com/wp-content/uploads/2003/07/jared-leto-fotos.jpg '),
-	(36, 'Carlos ', 'Sadness ', 'artista4@gmail.com    ', '2022-01-29 17:58:21', 1, '2022-01-29 17:58:21', '$2a$10$Tb7sRFeCLvAgPv4zYHNRSOvYoidWppRg9xrVuXL4hqcFCLLQAAxlW', 0, 'Carlos Sadness', 1, 'https://vanidad.es/images/carpeta_gestor/archivos/2019/06/28/CSADNESS_lalomar1.jpg '),
-	(37, 'Alek  ', 'Syntek  ', 'artista5@gmail.com  ', '2022-01-30 11:18:23', 1, '2022-01-30 11:18:23', '$2a$10$M7Q0ZPcSywRFr2W2tE1LH.AjY8rjkQtIDhvrzkieIADnhZfXLrfrS', 0, 'Alek Syntek', 1, ' https://ca-times.brightspotcdn.com/dims4/default/0ee6ae1/2147483647/strip/true/crop/1360x2048+0+0/resize/840x1265!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F96%2F66%2F34bab639a42f440e768564ffd78c%2Fsdut-el-cantante-mexicano-aleks-synt-20160823 '),
-	(38, 'Angel     ', 'Vega     ', 'avega@gmail.com     ', '2022-01-30 17:45:52', 1, '2022-01-30 17:45:52', '$2a$10$T9bqZml7Cti/9AONb0.xeuT1dWF2b3QJSPhEBC62S9aujxa.BlJ2S', 0, 'Avega', 0, '     '),
-	(41, 'usuario', 'usuario', 'usuario@usuario.com', '2022-01-30 21:27:43', 1, '2022-01-30 21:27:43', '$2a$10$SK5.7rMWViBu7NpaR/WI2.aa/.KuPV1VKBBZCvDIzR9ji2no56Wfm', 0, 'usuario', 0, NULL);
+	(1, 'Angel ', 'Vega ', 'admin@gmail.com', '2022-01-21 08:27:33', 1, '2022-01-21 08:27:33', '$2a$10$I7JZS.cexfDGI8XxYqAPI.t9XjFGacm.FqjdMGk7vjvVSoV3t.3EG', 1, 'admin', 0, '/uploads/laragon.png'),
+	(32, 'Profesor ', 'Blue Atkins    ', 'artista1@gmail.com              ', '2022-01-29 15:31:39', 1, '2022-01-29 15:31:39', '$2a$10$SbIxV2cMSkCMKRWndvRpq.BBa/FuIvQYUnu43zxRF.6/sr0ZpMTYa', 0, 'Profesor ', 1, '/uploads/yo2.png'),
+	(33, 'Jared  ', 'Leto  ', 'artista2@gmail.com     ', '2022-01-29 16:36:50', 1, '2022-01-29 16:36:50', '$2a$10$GNGZoZXuuPURW3vpuq9AKu2leNcP1TeB0h5kaKbUE28zO.4KzwAIW', 0, 'Jared Leto ', 1, '/uploads/pexels-ekaterina-bolovtsova-6689233.mp4'),
+	(36, 'Carlos  ', 'Sadness  ', 'artista4@gmail.com     ', '2022-01-29 17:58:21', 1, '2022-01-29 17:58:21', '$2a$10$Tb7sRFeCLvAgPv4zYHNRSOvYoidWppRg9xrVuXL4hqcFCLLQAAxlW', 0, 'Carlos Sadness ', 1, ''),
+	(37, 'Alek   ', 'Syntek   ', 'artista5@gmail.com   ', '2022-01-30 11:18:23', 1, '2022-01-30 11:18:23', '$2a$10$M7Q0ZPcSywRFr2W2tE1LH.AjY8rjkQtIDhvrzkieIADnhZfXLrfrS', 0, 'Alek Syntek ', 1, ''),
+	(44, 'Artista           ', 'prueba           ', 'artista3@gmail.com           ', '2022-02-01 23:12:45', 1, '2022-02-01 23:12:45', '$2a$10$LEd6YxBWbsJmOmGhN3TUA.ImA60a9ZI3J2bGMAaPvID38LnCPEGgS', 0, 'Muse', 1, '/uploads/pexels-anastasia-shuraeva-8028186.mp4'),
+	(45, 'cliente', 'prueba', 'cliente1@gmail.com', '2022-02-02 01:03:45', 1, '2022-02-02 01:03:45', '$2a$10$f16BK0ue6yRD9KcL6T3xae5l2bawz/uOpXcFelCXwa/d6OYvMpRkK', 0, 'avega', 0, NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

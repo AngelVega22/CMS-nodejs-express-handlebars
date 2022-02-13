@@ -1,0 +1,213 @@
+{{#if user.is_artist}}
+<div class="col-md-4 mx-auto">
+
+    <div class="card shadow p-3 mb-5 mt-5 bg-body rounded">
+        <div class=" card-body">
+            <h5 class="text-center mb-4 alert alert-secondary"> Estás editando el curso de <strong>{{data.nombre_c}}
+                </strong>
+            </h5>
+            <div class=" m-1 mb-4  shadow-sm">
+                <div class="row">
+                    <div class="col-md-8">
+                        <form method="POST" action="/uploadFotoCurso/{{data.id_c}}" enctype="multipart/form-data">
+                            <label class="danger alert-info mb-1 p-1" for="video"> Sube un imagen aquí
+
+                            </label>
+                            <input class="form-control" type="file" name="file">
+                            <input class="form-control btn-danger " type="submit" value="Subir imagen ">
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-fluid" src="{{data.foto_c}}" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <form action="/editCurso/{{data.id_c}}" method="POST">
+                <div class="d-flex justify-content-end">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                        {{!-- <button type="button" class="btn btn-sm btn-secondary " onclick="activarInput()"><i
+                                class="fas fa-user-edit"></i> Editar</button> &nbsp; --}}
+
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            <i class="fas fa-user-edit"></i> Editar
+                        </button>
+                        &nbsp;
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog ">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ¿Estas seguro que quieres editar la Información de {{data.nombre}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-sm btn-secondary " data-bs-dismiss="modal"
+                                            onclick="activarInput()">Editar</button>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                </div>
+
+
+                <h5 class="card-title mb-3">Curso de {{data.nombre_c}}:</h5>
+                <h6 class="card-subtitle  text-muted m-1">ID</h6>
+
+                <input name="id" class="form-control w-100 " type="text" value="{{data.id_c}} " disabled>
+
+
+
+
+                <h6 class="card-subtitle  text-muted m-2">Nombre</h6>
+                <input name="nombre_c" id="activate" class="form-control w-100" type="text" value="{{data.nombre_c}} "
+                    placeholder="Nombre del curso" disabled>
+                <h6 class="card-subtitle   text-muted  m-2">Descripcion</h6>
+                <input placeholder="Descripción" name="descripcion_c" id="activate2" class="form-control w-199"
+                    type="text" value="{{data.descripcion_c}} " disabled>
+                <h6 class="card-subtitle   text-muted  m-2">Precio</h6>
+
+                <input name="precio" id="activate3" class="form-control w-199" type="text" value="{{data.precio}} "
+                    placeholder="Precio" disabled>
+
+                <h6 class="card-subtitle text-muted  m-2">Duracion</h6>
+
+                <div class="form-outline ">
+                    <input id="activate4" type="text" name="duracion" class="form-control" value="{{data.duracion}}"
+                        placeholder="Duracion del curso" disabled>
+
+                </div>
+                <h6 class="card-subtitle  text-muted m-2">Horario</h6>
+
+                <div class="form-outline ">
+                    <input id="activate5" type="text" name="horario" value="{{data.horario}}" class="form-control"
+                        placeholder="Horario del curso" disabled>
+
+                </div>
+                <h6 class="card-subtitle  text-muted  m-2">Inicio</h6>
+
+                <div class="form-outline ">
+                    <input id="activate6" type="text" name="inicio" value="{{data.inicio}}" class="form-control"
+                        placeholder="Inicio del curso" disabled>
+
+                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-start mt-1  p-1">
+                        <h6> ¿tiene promoción?</h6>
+                    </div>
+                    <div class="form-check col-2">
+
+                        <div class="form-check">
+                            <input class="form-check-input" id="activate7" type="radio" name="is_promo" id="is_promo"
+                                value="1" disabled required>
+                            <label class="form-check-label" for="is_promo">
+                                Si
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" id="activate8" type="radio" name="is_promo" id="is_promo"
+                                value="0" disabled required>
+                            <label class="form-check-label" for="is_promo">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start mt-1  p-1">
+                        <h6> ¿Está activo?</h6>
+                    </div>
+                    <div class="form-check col-2">
+
+                        <div class="form-check">
+                            <input class="form-check-input" id="activate9" type="radio" name="estado_curso"
+                                id="estado_curso" value="1" disabled required>
+                            <label class="form-check-label" for="estado_curso">
+                                Si
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" id="activate10" type="radio" name="estado_curso"
+                                id="estado_curso" value="0" disabled required>
+                            <label class="form-check-label" for="estado_curso">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center"> <button type="submit" class="btn  btn-secondary active"><i
+                            class="fas fa-save"></i>
+                        Guardar </button></div>
+
+                <!-- Button trigger modal -->
+                {{!-- <div class="d-flex justify-content-center"> <button type="button" class="btn btn-danger mt-4"
+                        data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                        Eliminar curso
+                    </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Estas seguro que quieres eliminar el curso
+                                <strong> {{data.nombre_c}}</strong>?
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-sm"
+                                    data-bs-dismiss="modal">Cerrar</button>
+                                <a class="btn btn-sm btn-danger" href="/deleteCurso/{{data.id_c}}">
+                                    Eliminar <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row container">
+        <div class="col-md-6 d-flex justify-content-center"><a class="text-dark text-decoration-none mb-2 m-2"
+                href="/cursos/{{data.id_categoria}}"> <i class="fas fa-undo-alt "></i> Ir a Cursos por categoria </a>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center"><a class="text-dark text-decoration-none mb-5 m-2"
+                href="/admin_cursos">
+                <i class="fas fa-undo-alt "></i> Ir a Cursos </a></div>
+
+    </div>
+
+</div>
+
+
+{{else}}
+{{>404}}
+{{/if}}

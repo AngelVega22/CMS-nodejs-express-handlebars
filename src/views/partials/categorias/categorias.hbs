@@ -1,0 +1,101 @@
+{{#if user.is_artist}}
+
+<div class="container">
+    <div class="card m-3 shadow p-3 mt-5 mb-5 bg-body rounded">
+        <div class="d-flex justify-content-end">
+            <div class="btn-group  col-2 ">
+                <a href="/" class="btn btn-light btn-sm active " aria-current="page">Inicio </a>
+                <a href="/dashboard" class="btn btn-secondary btn-sm ">Perfil <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </div>
+
+        <h4 class="card-title mb-2 text-center fw-bold">Categorias </h4>
+        <hr>
+        <div class="d-flex justify-content-center"> <a class="text-decoration-none btn btn-warning active"
+                href="/addCategoria">Agregar nueva categoria</a> </div>
+        <div class=" card-body p-4">
+
+
+            <div class="row">
+
+
+
+                <table id="table_id" class="table display shadow-sm">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Id</th>
+
+                            <th scope="col">Nombre</th>
+                            <th scope="col"> Descripcion</th>
+                            <th scope="col"> Estado</th>
+
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {{#each data}}
+                            {{!-- <td><img width="50" class="rounded-pill img-fluid" src="{{foto}}" alt=""></td> --}}
+                            <td>{{id}}</td>
+                            <td>{{nombre}}</td>
+
+                            <td>
+                                <details>{{descripcion}} </details>
+                            </td>
+                            <td> {{#if estado_categoria}}
+                                <p class="  alert-warning">Activo</p> {{else}} <p class="  alert-danger">inactivo</p>
+                                {{/if}}
+                            </td>
+                            <td>
+                                <a class="btn btn-secondary" href="/editCategoria/{{id}}">
+                                    Editar
+                                </a>
+                                {{!-- <a class="btn btn-secondary" href="/addImageCategroria/{{id}}">
+                                    Agregar imagen
+                                </a> --}}
+                                {{!-- <a class="btn btn-warning" href="/editProduct/{{id}}">
+
+                                </a> --}}
+                                <a class="btn btn-warning" href="/cursos/{{id}}">
+                                    Agregar cursos
+                                </a>
+
+                                {{!-- <a class="btn btn-danger" href="/deleteProducto/{{id}}">
+                                    Eliminar
+                                </a> --}}
+
+                            </td>
+                        </tr> {{else}}
+                        <div class="col-md-4 mb-5 mx-auto">
+                            <div class="card card-body text-center">
+                                <p>No tienes categorias todavia.</p>
+                                <a class="text-dark text-decoration-none" href="/addCategoria">¡Crea una!</a>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{{else}}
+<div style="height: 60vh;" class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <span class="display-1 d-block">4<i class="far fa-question-circle fa-spin"></i>4</span>
+                <div class="mb-4 lead">La página que buscas no existe</div>
+                <a href="/" class="btn btn-link text-dark text-decoration-none">Regresa a
+                    inicio</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/if}}

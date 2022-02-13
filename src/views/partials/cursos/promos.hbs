@@ -1,0 +1,41 @@
+<section class="container m-auto mt-5">
+    <div class="row">
+        <h2 class="text-center mb-5">Promociones</h2>
+        {{#each data}}
+        {{#if foto_c}}
+        {{#if estado_curso}}
+        {{#if is_promo}}
+        <div class="d-flex justify-content-center ">
+            <div class="col-md-8 div-curso m-3 bg-cate mb-5 ">
+
+                <figure>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="{{foto_c}}" class="img-fluid foto-cursos" alt="">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-end"> <span class="sale">-50%</span></div>
+                            <h3 class=" text-start p-1 mt-3">{{nombre_c}}</h3>
+                            <h5 class=" text-start text-muted p-1 mb-4">{{nombre}}</h5>
+
+                            <p class="text-start p-1">{{descripcion_c}}</p>
+                        </div>
+                    </div>
+
+
+
+                    {{!-- <a class="text-dark text-decoration-none" href="/detalles/{{id}}"> --}}
+
+
+
+                        {{!--
+                    </a> --}}
+                </figure>
+            </div>
+        </div>
+        {{/if}}
+        {{/if}}
+        {{/if}}
+        {{/each}}
+    </div>
+</section>

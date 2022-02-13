@@ -22,13 +22,16 @@ controller.upload = (req, res) => {
 
             }
         })
+    } else {
+        res.redirect('/dashboard');
     }
+
 }
 
 //Listas publicaciones
 
 controller.adminPublicaciones = async (req, res) => {
-    const data = await pool.query("SELECT * FROM producto INNER JOIN user ON producto.id_user = user.id ");
+    const data = await pool.query("SELECT * FROM curso INNER JOIN user ON curso.id_user = user.id ");
     res.render('partials/admin/adminPublicaciones', { data })
 }
 

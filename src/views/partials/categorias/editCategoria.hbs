@@ -1,0 +1,167 @@
+{{#if user.is_artist }}
+<div class="col-md-4 mx-auto">
+
+    <div class="card shadow p-3 mb-5 mt-5 bg-body rounded">
+        <div class=" card-body">
+            <h5 class="text-center mb-4 alert alert-secondary"> Estás editando la categoria de <strong>{{data.nombre}}
+                </strong>
+            </h5>
+            <div class=" m-1 mb-4  shadow-sm">
+                <div class="row">
+                    <div class="col-md-8">
+                        <form method="POST" action="/uploadFotoCategoria/{{data.id}}" enctype="multipart/form-data">
+                            <label class="danger alert-info mb-1 p-1" for="video"> Sube un imagen aquí
+
+                            </label>
+                            <input class="form-control" type="file" name="file">
+                            <input class="form-control btn-danger " type="submit" value="Subir imagen ">
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-fluid" src="{{data.foto}}" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <form action="/editCategoria/{{data.id}}" method="POST">
+                <div class="d-flex justify-content-end">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                        {{!-- <button type="button" class="btn btn-sm btn-secondary " onclick="activarInput()"><i
+                                class="fas fa-user-edit"></i> Editar</button> &nbsp; --}}
+
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            <i class="fas fa-user-edit"></i> Editar
+                        </button>
+                        &nbsp;
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog ">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ¿Estas seguro que quieres editar la Información de {{data.nombre}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-sm btn-secondary " data-bs-dismiss="modal"
+                                            onclick="activarInput()">Editar</button>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {{!-- <button type="submit" class="btn btn-sm btn-secondary active"><i class="fas fa-save"></i>
+                            Guardar </button> --}}
+
+                    </div>
+
+
+                </div>
+
+
+                <h5 class="card-title mb-3">Información de {{user.user_name}}:</h5>
+                <h6 class="card-subtitle mb-2 text-muted mt-2">ID</h6>
+
+                <input name="id" class="form-control w-100 mb-2" type="text" value="{{data.id}} " disabled>
+
+
+
+
+                <h6 class="card-subtitle mb-2 text-muted">Nombre</h6>
+                <input name="nombre" id="activate" class="form-control w-100" type="text" value="{{data.nombre}} "
+                    disabled>
+                <h6 class="card-subtitle mb-2 mt-1 text-muted">Descripcion</h6>
+                <input name="descripcion" id="activate2" class="form-control w-199" type="text"
+                    value="{{data.descripcion}} " disabled>
+                <div class="d-flex justify-content-start mt-1  p-1">
+                    <h6> ¿Está activo?</h6>
+                </div>
+                <div class="form-check col-1">
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="activate4" type="radio" name="estado_categoria"
+                            id="estado_categoria" value="1" disabled required>
+                        <label class="form-check-label" for="estado_categoria">
+                            Si
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" id="activate3" type="radio" name="estado_categoria"
+                            id="estado_categoria" value="0" disabled required>
+                        <label class="form-check-label" for="estado_categoria">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-4"> <button type="submit"
+                        class="btn  btn-secondary active"><i class="fas fa-save"></i>
+                        Guardar </button></div>
+                {{!--
+                <!-- Button trigger modal -->
+                <div class="d-flex justify-content-center"> <button type="button" class="btn btn-danger mt-4"
+                        data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                        Eliminar categoria
+                    </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Estas seguro que quieres eliminar la categoria
+                                <strong> {{data.nombre}}</strong>?
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-sm"
+                                    data-bs-dismiss="modal">Cerrar</button>
+                                <a class="btn btn-danger" href="/deleteCategoria/{{data.id}}">
+                                    Eliminar <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row container">
+        <div class="col-md-6 d-flex justify-content-center"><a class="text-dark text-decoration-none mb-2 m-2"
+                href="/categorias"> <i class="fas fa-undo-alt "></i> Ir a Categorias </a></div>
+        <div class="col-md-6 d-flex justify-content-center"><a class="text-dark text-decoration-none mb-5 m-2"
+                href="/admin_cursos">
+                <i class="fas fa-undo-alt "></i> Ir a Cursos </a></div>
+
+    </div>
+    {{!-- <div class="d-flex justify-content-end"> <a class="text-dark text-decoration-none mb-2 m-2"
+            href="/categorias"> <i class="fas fa-undo-alt "></i> Ir a Categorias </a>
+    </div>
+    <div class="d-flex justify-content-start"> <a class="text-dark text-decoration-none mb-5 m-2" href="/admin_cursos">
+            <i class="fas fa-undo-alt "></i>Ir a Cursos </a>
+    </div> --}}
+</div>
+{{else}}
+{{>404}}
+{{/if}}
