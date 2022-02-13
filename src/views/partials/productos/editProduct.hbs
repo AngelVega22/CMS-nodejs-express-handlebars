@@ -3,7 +3,13 @@
     <div class="card shadow p-3 mb-5 mt-5 bg-body rounded">
         <div class=" card-body">
             <h5 class="text-center mb-4 alert alert-secondary">Ingresa los datos quieras actualizar</h5>
+            <form method="POST" action="/uploadFoto/{{producto.id}}" enctype="multipart/form-data">
+                <label class="danger alert-info mb-1 p-1" for="video"> Sube un video para comenzar
 
+                </label>
+                <input class="form-control" type="file" name="file">
+                <input class="form-control" type="submit" value="Subir o actualizar video ">
+            </form>
             <form action="/editProduct/{{producto.id}}" method="POST">
                 <div class="form-outline mb-4">
                     <input type="text" name="nombre_artista" class="form-control" placeholder="Nombre de servicio"

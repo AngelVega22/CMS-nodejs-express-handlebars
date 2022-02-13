@@ -53,6 +53,28 @@ controller.updateProducto = async (req, res) => {
 }
 
 
+controller.uploadFoto = (req, res) => {
 
+    if (req.files) {
+        console.log(req.files)
+        var file = req.files.file
+        var filename = file.name
+        console.log(filename)
+
+        file.mv('./src/public/uploads/' + filename, function (err) {
+            if (err) {
+                res.send(err)
+            } else {
+                const { id } = req.params;
+                const foto = "/uploads/" + filename
+                console.log(foto)
+                console.log(" el id" + id)
+                pool.query('UPDATE producto set url_img = ? WHERE id = ?', [foto, id])
+                res.redirect('/miList');
+
+            }
+        })
+    }
+}
 
 module.exports = controller;

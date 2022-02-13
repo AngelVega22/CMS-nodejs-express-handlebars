@@ -26,5 +26,6 @@ router.get('/editProduct/:id', isLoggedIn, async (req, res) => {
 router.post('/editProduct/:id', isLoggedIn, productsController.updateProducto)
 router.get('/deleteProducto/:id', isLoggedIn, productsController.deleteProducto)
 router.post('/addProducto', isLoggedIn, productsController.addProducto)
+router.post('/uploadFoto/:id', isLoggedIn, productsController.uploadFoto)
 
 module.exports = router;
