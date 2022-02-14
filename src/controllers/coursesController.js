@@ -132,4 +132,12 @@ controller.promos = async (req, res) => {
     })
 }
 
+//Listar cursos por categorias 
+controller.cursosXcategoria = async (req, res) => {
+    const { id } = req.params;
+    const cursoCategoria = await pool.query('SELECT * FROM curso INNER JOIN categoria ON curso.id_categoria = categoria.id WHERE id_categoria = ?', [id]);
+    // console.log(id)
+    res.render('partials/cursos/cursosXcategorias', { data: cursoCategoria, id: id, curso: cursoCategoria[0] })
+}
+
 module.exports = controller;

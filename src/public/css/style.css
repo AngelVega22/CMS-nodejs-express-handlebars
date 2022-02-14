@@ -341,6 +341,13 @@ ol {
 	padding: 5%;
 
 }
+.foto-categoria2{
+	height: 45vh;
+	width: 45vw;
+	object-fit: contain;
+
+
+}
 .foto-cursos{
 	/* height: 25vh;
 	width: 25vw; */
@@ -464,3 +471,39 @@ border-radius: 10px;
 	from {	transform: rotate(-10deg) scale(1); }
 	to {	transform: rotate(-10deg) scale(1.1); }
 }
+
+
+/**/
+.img-carusel{
+	height: 45vh;
+	object-fit: cover;
+}
+
+.bg-principal-cursos{
+	background-color: #00849D ;
+
+	/* background-image: url(../images/bg-blackboard.jpg); */
+	/* opacity:0.9; */
+}
+
+.bg-curso{
+	border-radius: 5px;
+	background: #ffffff;
+	box-shadow:  5px 5px 0px #fafafa,
+				 -5px -5px 0px #ffffff;
+}
+.bg-curso:hover{
+
+	box-shadow:  5px 5px 0px #fafafa,
+	-7px -7px 0px #ffffff;
+
+}
+.llama{
+	width: 15vw;
+	position: absolute;
+}
+/* @media only screen and (min-width: 1200px) {
+	.margen-negativo{
+		margin-top: -20em;
+	}
+  } */

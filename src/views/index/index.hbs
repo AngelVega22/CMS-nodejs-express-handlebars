@@ -42,18 +42,19 @@
           {{#each data}}
           {{#if foto}}
           {{#if estado_categoria}}
+
           <div class="col-md-6 col-lg-4 col-xl-3 p-1 ms-5 mb-5 bg-cate  div-cat  ">
-            <figure>
+            <a class="text-dark text-decoration-none" href="/cursos-categoria/{{id}}">
+
               <img src="{{foto}}" class=" foto-categoria" alt="" srcset="">
 
-              {{!-- <a class="text-dark text-decoration-none" href="/detalles/{{id}}"> --}}
-                <h4 class=" text-center text-black titulo-categoria">{{nombre}}</h4>
+
+              <h4 class=" text-center text-black titulo-categoria mb-2">{{nombre}} </h4>
 
 
-                {{!--
-              </a> --}}
-            </figure>
+            </a>
           </div>
+
           {{/if}}
 
           {{/if}}

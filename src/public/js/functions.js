@@ -58,3 +58,11 @@ const categoria = document.getElementById('categoria').innerHTML
 // console.log(categoria)
 document.getElementById('cursoCategoria').innerHTML = "Cursos de " + categoria;
 
+const descripcion = document.getElementById('descripcion-categoria').innerHTML
+// console.log(descripcion)
+document.getElementById('descripcionCategoria').innerHTML = descripcion;
+
+const fotoParaCategoria = document.getElementById('fotoCategoria').getAttribute("src")
+// console.log(fotoParaCategoria)
+document.getElementById('categoriaFoto').src = fotoParaCategoria
+

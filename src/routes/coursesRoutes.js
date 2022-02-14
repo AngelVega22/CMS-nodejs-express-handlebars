@@ -4,11 +4,21 @@ const { isLoggedIn } = require('../lib/auth');
 const pool = require('../connection')
 const coursesController = require('../controllers/coursesController')
 
+//**/===Rutas publicas======== */
+
 //Listar todos los cursos
 router.get('/cursos', coursesController.cursos)
 
+//Cursos en promoción
+router.get('/promociones', coursesController.promos)
+
+//Listar cursos por categoria
+router.get('/cursos-categoria/:id', coursesController.cursosXcategoria)
+
+//**/===Rutas privadas======== */
+
 //Listar todos cursos para administrar
-router.get('/admin_cursos', isLoggedIn, coursesController.adminCursos)
+router.get('/admin-cursos', isLoggedIn, coursesController.adminCursos)
 
 //Ruta para litar cursos por categoria
 router.get('/cursos/:id', isLoggedIn, coursesController.listCourses)
@@ -33,7 +43,6 @@ router.post('/uploadFotoCurso/:id_c', isLoggedIn, coursesController.uploadFotoCu
 //Eliminar curso
 router.get('/deleteCurso/:id', isLoggedIn, coursesController.deleteCurso)
 
-//Cursos en promoción
-router.get('/promociones', coursesController.promos)
+
 
 module.exports = router;
