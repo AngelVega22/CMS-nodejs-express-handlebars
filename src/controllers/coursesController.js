@@ -1,7 +1,14 @@
 const controller = {};
 const pool = require('../connection')
 
+//Listar un detalles de un curso
+controller.detalleCurso = async (req, res) => {
+    const { id_c } = req.params;
+    const data = await pool.query('SELECT * FROM curso  WHERE id_c = ?', [id_c]);
+    console.log(data)
 
+    res.render('partials/cursos/cursoDetalle', { data: data[0] })
+}
 //Listar todos los cursos
 controller.cursos = async (req, res) => {
     const cursos = await pool.query("SELECT * FROM curso INNER JOIN categoria ON curso.id_categoria = categoria.id", (err, cursos) => {

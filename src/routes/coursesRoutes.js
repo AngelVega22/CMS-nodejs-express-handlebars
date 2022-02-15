@@ -15,6 +15,9 @@ router.get('/promociones', coursesController.promos)
 //Listar cursos por categoria
 router.get('/cursos-categoria/:id', coursesController.cursosXcategoria)
 
+//Detalle de curso
+router.get('/detalle-curso/:id_c', coursesController.detalleCurso)
+
 //**/===Rutas privadas======== */
 
 //Listar todos cursos para administrar
