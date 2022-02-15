@@ -1,36 +1,77 @@
 <section class="container  mt-5">
+
     <div class="row">
+        <div class="col-md-4 mb-5">
+            <div class="d-flex justify-content-center">
+                <div class="col-12">
 
-        {{#each data}}
-        {{#if foto_c}}
-        {{#if estado_curso}}
+                    <h4 class="mt-4 mb-3">Nuestros cursos <i class="fa-solid fa-magnifying-glass"></i></h4>
+                    <input type="text" id="myInput" onkeyup="myFunction()" class="form-control w-100 shadow"
+                        placeholder="Buscar curso..." title="Type in a name">
 
-        <div class="col-md-7 div-curso mt-5  bg-cate mb-5 ">
-            <figure>
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="{{foto_c}}" class="img-fluid foto-cursos" alt="">
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class=" text-start p-1 mt-3">{{nombre_c}}</h3>
-                        <h5 class=" text-start text-muted p-1 mb-4">{{nombre}}</h5>
 
-                        <p class="text-start p-1">{{descripcion_c}}</p>
+                    <div class=" justify-content-start">
+                        <div class="list-group mt-5 col-8 "> <img class="llama3" src="/images/llama-para-formulario.svg"
+                                alt="" srcset="">
+                            <a href="#" class="list-group-item list-group-flush mb-2 text-white h4 bg-principal">
+                                <i class="fas fa-building-columns"></i> Categorías
+                            </a>
+                            {{#each categoria}}
+
+                            <a href="/cursos-categoria/{{id}}"
+                                class="list-group-item list-group-item-action h6 mb-2">{{nombre}}</a>
+
+                            {{/each}}
+
+                        </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-end">
-                    <a class="btn btn-warning text-white fw-bolder" href="/detalle-curso/{{id_c}}">Ver más </a>
-                </div>
-                {{!-- <a class="text-dark text-decoration-none" href="/detalles/{{id}}"> --}}
-
-
-
-                    {{!--
-                </a> --}}
-            </figure>
+            </div>
         </div>
-        {{/if}}
-        {{/if}}
-        {{/each}}
+
+        <div class="col-md-8">
+
+            <ul id="myUL">
+
+                {{#each data}}
+                {{#if foto_c}}
+                {{#if estado_curso}}
+                <li id="nohay" style="color: white;"><a href="#" style="display:none;">{{nombre_c}}{{descripcion_c}}
+                        {{nombre}}</a>
+                    <div class="col-md-12 div-curso mt-5  bg-cate mb-5 ">
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{foto_c}}" class="img-fluid foto-cursos" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class=" text-start p-1 mt-3">{{nombre_c}}</h3>
+                                <h5 class=" text-start text-muted p-1 mb-4">{{nombre}}</h5>
+
+                                <p class="text-start p-1">{{descripcion_c}}</p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-warning text-white fw-bolder" href="/detalle-curso/{{id_c}}">Ver más
+                            </a>
+                        </div>
+
+
+                    </div>
+                </li>
+                {{/if}}
+
+                {{/if}}
+
+                {{/each}}
+
+            </ul>
+            <img class="llama4" src="images/llama-para-header.svg" alt="">
+        </div>
+
+
     </div>
+
+
 </section>

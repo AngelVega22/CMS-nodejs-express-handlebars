@@ -5,20 +5,23 @@ const pool = require('../connection')
 controller.detalleCurso = async (req, res) => {
     const { id_c } = req.params;
     const data = await pool.query('SELECT * FROM curso  WHERE id_c = ?', [id_c]);
-    console.log(data)
+    // console.log(data)
 
     res.render('partials/cursos/cursoDetalle', { data: data[0] })
 }
 //Listar todos los cursos
 controller.cursos = async (req, res) => {
+    const categoria = await pool.query('SELECT * FROM categoria')
     const cursos = await pool.query("SELECT * FROM curso INNER JOIN categoria ON curso.id_categoria = categoria.id", (err, cursos) => {
+
+
         // console.log(cursos)
 
         if (err) {
             res.json(err);
 
         } res.render("partials/cursos/cursosPublic", {
-            data: cursos
+            data: cursos, categoria: categoria
 
         })
     })

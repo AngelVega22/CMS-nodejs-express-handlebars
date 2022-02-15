@@ -136,7 +136,6 @@ ol {
 	padding: 5%;
 }
 .foto-categoria:hover{
-	width: 26vw;
 	 transform: scale3d(1.02,1.02,1.02);
 	 
 	 transition: 0.6s;
@@ -220,12 +219,13 @@ ol {
 				 -21px -21px 33px #ffffff;
 }
 .nav-hover{
-	color: black;
+	color: black !important;
 	border-radius: 10px;
 	margin-left: 1vw;
 }
+
 .nav-hover:hover{
-	color: white;
+	color: white !important;
 background-color: #00849D;
 border-radius: 10px;
 }
@@ -280,7 +280,7 @@ border-radius: 10px;
 
 }
 .llama{
-	margin-top: 2em;
+	/* margin-top: 2em; */
 	width: 18em;
 	position: absolute;
 }
@@ -288,4 +288,11 @@ border-radius: 10px;
 	/* margin-top: 2em; */
 	width: 22em;
 	position: absolute;
+}
+.llama3{
+	width: 12em;
+}
+.llama4{
+	width: 22em;
+	margin-left: 10em;
 }

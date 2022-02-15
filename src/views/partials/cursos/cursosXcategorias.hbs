@@ -24,30 +24,30 @@
         {{#if foto_c}}
         {{#if estado_curso}}
         <div class="d-flex justify-content-center">
-            <div class="col-md-7 div-curso bg-curso m-4 mb-5 ">
-                <figure>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="{{foto_c}}" class="img-fluid foto-cursos" alt="">
-                            <img id="fotoCategoria" style="display: none;" src="{{foto}}" alt="" srcset="">
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class=" text-start p-1 mt-3">{{nombre_c}}</h3>
-                            <h5 id="categoria" class=" text-start text-muted p-1 mb-4">{{nombre}}</h5>
-                            <p style="display: none;" id="descripcion-categoria">{{descripcion}}</p>
-                            <p class="text-start p-1">{{descripcion_c}}</p>
-                        </div>
+            <div class="col-md-7 div-curso bg-curso  mt-5 mb-5 ">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{{foto_c}}" class="img-fluid foto-cursos" alt="">
+                        <img id="fotoCategoria" style="display: none;" src="{{foto}}" alt="" srcset="">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class=" text-start p-1 mt-3">{{nombre_c}}</h3>
+                        <h5 id="categoria" class=" text-start text-muted p-1 mb-4">{{nombre}}</h5>
+                        <p style="display: none;" id="descripcion-categoria">{{descripcion}}</p>
+                        <p class="text-start p-1">{{descripcion_c}}</p>
+
                     </div>
 
-
-
-                    {{!-- <a class="text-dark text-decoration-none" href="/detalles/{{id}}"> --}}
+                </div>
 
 
 
-                        {{!--
-                    </a> --}}
-                </figure>
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-warning text-white fw-bolder" href="/detalle-curso/{{id_c}}">Ver más
+                    </a>
+                </div>
+
 
             </div>
 
