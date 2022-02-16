@@ -54,7 +54,7 @@ controller.updateProducto = async (req, res) => {
 
 
 controller.uploadFoto = (req, res) => {
-
+    const { id } = req.params
     if (req.files) {
         console.log(req.files)
         var file = req.files.file
@@ -74,6 +74,9 @@ controller.uploadFoto = (req, res) => {
 
             }
         })
+    } else {
+        res.redirect('/editProduct/' + id);
+
     }
 }
 

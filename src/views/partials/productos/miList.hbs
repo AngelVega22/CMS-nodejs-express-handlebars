@@ -20,7 +20,7 @@
                     <thead>
                         <tr>
 
-                            <th scope="col">Foto</th>
+                            <th scope="col">Video</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Genero</th>
                             <th scope="col">Descripcion</th>
@@ -31,7 +31,9 @@
                     <tbody>
                         <tr>
                             {{#each data}}
-                            <td><img width="50" class="rounded-pill img-fluid" src="{{url_img}}" alt=""></td>
+                            <td>
+                                <video width="50" src="{{url_img}}   "></video>
+                            </td>
 
                             <td>{{nombre_artista}}</td>
                             <td>{{genero}}</td>

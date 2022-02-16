@@ -22,6 +22,9 @@ controller.upload = (req, res) => {
 
             }
         })
+    } else {
+        res.redirect('/dashboard');
+
     }
 }
 
