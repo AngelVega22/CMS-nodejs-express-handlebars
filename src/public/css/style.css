@@ -281,18 +281,19 @@ border-radius: 10px;
 }
 .llama{
 	/* margin-top: 2em; */
-	width: 18em;
-	position: absolute;
+	width: 22em;
 }
 .llama2{
 	/* margin-top: 2em; */
-	width: 22em;
-	position: absolute;
+	 width: 25em;
+/*	position: absolute; */
 }
 .llama3{
 	width: 12em;
 }
 .llama4{
-	width: 22em;
-	margin-left: 10em;
+	margin-top: 10vh;
+	width: 16em;
+	/* margin: auto;
+	margin-left: 10em; */
 }

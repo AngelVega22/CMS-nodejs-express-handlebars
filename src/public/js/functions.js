@@ -54,17 +54,7 @@ function activarInput() {
 }
 
 
-const categoria = document.getElementById('categoria').innerHTML
-// console.log(categoria)
-document.getElementById('cursoCategoria').innerHTML = "Cursos de " + categoria;
 
-const descripcion = document.getElementById('descripcion-categoria').innerHTML
-// console.log(descripcion)
-document.getElementById('descripcionCategoria').innerHTML = descripcion;
-
-const fotoParaCategoria = document.getElementById('fotoCategoria').getAttribute("src")
-// console.log(fotoParaCategoria)
-document.getElementById('categoriaFoto').src = fotoParaCategoria
 
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
@@ -77,9 +67,23 @@ function myFunction() {
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
+            // document.getElementById('sihay').innerHTML = "Mucha suerte en tu busqueda "
+            // document.getElementById('sihay').style.display = "none "
+            document.getElementById('sihay').style.display = "none"
+            document.getElementById('llama').style.display = "none"
         } else {
 
             li[i].style.display = "none";
+            if (li[i].style.display = "none") {
+                document.getElementById('sihay').innerHTML = "Buena suerte en tu busqueda"
+                document.getElementById('sihay').style.display = ""
+                document.getElementById('llama').style.display = ""
+
+            }
         }
     }
 }
+
+// document.getElementById('sihay').innerHTML = "HOLA"
+
+
