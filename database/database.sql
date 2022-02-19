@@ -23,39 +23,50 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `nombre` varchar(255) DEFAULT NULL,
   `foto` varchar(255) DEFAULT NULL,
   `descripcion` longtext,
+  `estado_categoria` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla escuela.categoria: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla escuela.categoria: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-INSERT INTO `categoria` (`id`, `nombre`, `foto`, `descripcion`) VALUES
-	(1, ' Marketing ', '/uploads/bg.jpg', ' Marketing Digital y neuromarketing'),
-	(2, 'Desarrollo web ', '/uploads/bg-system.jpg', 'Diseño y desarrollo web '),
-	(3, 'Publicidad', NULL, 'Publicidad');
+INSERT INTO `categoria` (`id`, `nombre`, `foto`, `descripcion`, `estado_categoria`) VALUES
+	(1, ' Marketing  ', '/uploads/redes.png', ' Marketing Digital y neuromarketing ', 1),
+	(2, 'Desarrollo web  ', '/uploads/content.png', 'Aprende desarrollar tu sitio web desde cero, conoce todos los lenguajes de programación, maquetadores visuales, gestores de contenido como WordPress y administra tu sitio web sin complicaciones.', 1),
+	(3, 'Publicidad  ', '/uploads/4360029.png', 'Publicidad   ', 1),
+	(6, 'Comunicación  ', '/uploads/comun.png', 'Comunicación  ', 1),
+	(7, 'Programación ', '/uploads/coding.png', 'Programación ', 1),
+	(8, 'Diseño gráfico  ', '/uploads/dise.png', 'El diseño gráfico es la profesión y disciplina académica cuya actividad consiste en proyectar comunicaciones visuales destinadas a transmitir mensajes específicos a grupos sociales con objetivos determinados.', 1);
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 
 -- Volcando estructura para tabla escuela.curso
 CREATE TABLE IF NOT EXISTS `curso` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_c` varchar(255) NOT NULL,
-  `descripcion_c` varchar(255) NOT NULL,
+  `id_c` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_c` varchar(255) DEFAULT NULL,
+  `descripcion_c` longtext,
   `foto_c` varchar(255) DEFAULT NULL,
-  `precio` float NOT NULL,
+  `precio` varchar(50) DEFAULT NULL,
+  `horario` varchar(200) DEFAULT NULL,
+  `duracion` varchar(200) DEFAULT NULL,
+  `inicio` varchar(200) DEFAULT NULL,
   `id_categoria` int(11) DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+  `estado_curso` int(11) DEFAULT '0',
+  `is_promo` int(11) DEFAULT '0',
+  PRIMARY KEY (`id_c`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla escuela.curso: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla escuela.curso: ~8 rows (aproximadamente)
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-INSERT INTO `curso` (`id`, `nombre_c`, `descripcion_c`, `foto_c`, `precio`, `id_categoria`) VALUES
-	(14, 'Neuromarketing', 'Neuromarketing interesante', NULL, 120, 1),
-	(15, 'Wordpress', 'Wordpress', NULL, 121, 2),
-	(16, 'Programación web', 'Programación web', NULL, 980, 2),
-	(17, 'Wordpress avanzado', 'Wordpress avanzado', NULL, 100, 2),
-	(18, 'PHP', 'PHP', NULL, 121, 2),
-	(19, 'HTML', 'HTML', NULL, 700, 2),
-	(20, 'Marketing digital avanzado', 'Marketing digital avanzado', NULL, 239, 1),
-	(21, 'Introduccion a la publicidad', 'Introduccion a la publicidad', NULL, 120, 3);
+INSERT INTO `curso` (`id_c`, `nombre_c`, `descripcion_c`, `foto_c`, `precio`, `horario`, `duracion`, `inicio`, `id_categoria`, `estado_curso`, `is_promo`) VALUES
+	(44, ' Wordpress  ', ' Wordpress  ', '/uploads/img_3125.jpg', '  1234  ', '1pm a 3pm', '6 meses', 'marzo', 1, 1, 0),
+	(46, 'Javascript   ', 'JavaScript (JS) es un lenguaje de programación ligero, interpretado, o compilado justo-a-tiempo (just-in-time) con funciones de primera clase. ', '/uploads/640px-js.png', '250   ', '1pm a 3pm', '6 meses', 'Junio', 2, 1, 1),
+	(51, 'PHP  ', 'PHP (acrónimo recursivo de PHP: Hypertext Preprocessor ) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML. ', '/uploads/PHP-logo.svg.png', '808  ', '1pm a 3pm', '3 meses', 'marzo', 2, 1, 1),
+	(52, 'SEO  ', 'El posicionamiento en buscadores u optimización de motores de búsqueda es el proceso de mejorar la visibilidad de un sitio web en los resultados orgánicos de los diferentes buscadores.', '/uploads/mark.jpg', '808  ', '1pm a 3pm', '3 meses', 'marzo', 3, 1, NULL),
+	(53, 'SEO   ', 'Curso de seo', '/uploads/publi.png', '808   ', '1pm a 3pm', '3 meses', 'marzo', 6, 1, 1),
+	(54, 'Google ads  ', 'Google ads  ', '/uploads/goosda.png', '900  ', '1pm a 3pm', '6 meses', 'marzo', 3, 1, NULL),
+	(55, 'Fotografia', 'Fotografia', NULL, '900', '1pm a 3pm', '6 meses', 'marzo', 6, 1, 0),
+	(56, 'C++', 'C++', NULL, '900', '1pm a 3pm', '3 meses', 'febrero', 7, 1, 0),
+	(57, 'Photoshop ', 'Photoshop ', '/uploads/ps.png', '900 ', '1pm a 3pm', '6 meses', 'Junio', 8, 1, 0),
+	(58, 'Illustrator  ', 'Illustrator  ', '/uploads/ai.png', '900  ', '1pm a 3pm', '6 meses', 'febrero', 8, 1, 1);
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 
 -- Volcando estructura para tabla escuela.sessions
@@ -66,10 +77,8 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   PRIMARY KEY (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla escuela.sessions: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla escuela.sessions: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-	('l8n2TuPPOqaeXiKzIjT6p8draR_ENXvD', 1644558750, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"passport":{"user":32}}');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 
 -- Volcando estructura para tabla escuela.user
@@ -89,16 +98,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla escuela.user: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla escuela.user: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `last_login`, `is_active`, `date_joined`, `password`, `is_superuser`, `user_name`, `is_artist`, `foto`) VALUES
 	(1, 'Angel ', 'Vega ', 'admin@gmail.com', '2022-01-21 08:27:33', 1, '2022-01-21 08:27:33', '$2a$10$I7JZS.cexfDGI8XxYqAPI.t9XjFGacm.FqjdMGk7vjvVSoV3t.3EG', 1, 'admin', 0, '/uploads/laragon.png'),
-	(32, 'Profesor ', 'Blue Atkins    ', 'artista1@gmail.com              ', '2022-01-29 15:31:39', 1, '2022-01-29 15:31:39', '$2a$10$SbIxV2cMSkCMKRWndvRpq.BBa/FuIvQYUnu43zxRF.6/sr0ZpMTYa', 0, 'Profesor ', 1, '/uploads/yo2.png'),
-	(33, 'Jared  ', 'Leto  ', 'artista2@gmail.com     ', '2022-01-29 16:36:50', 1, '2022-01-29 16:36:50', '$2a$10$GNGZoZXuuPURW3vpuq9AKu2leNcP1TeB0h5kaKbUE28zO.4KzwAIW', 0, 'Jared Leto ', 1, '/uploads/pexels-ekaterina-bolovtsova-6689233.mp4'),
-	(36, 'Carlos  ', 'Sadness  ', 'artista4@gmail.com     ', '2022-01-29 17:58:21', 1, '2022-01-29 17:58:21', '$2a$10$Tb7sRFeCLvAgPv4zYHNRSOvYoidWppRg9xrVuXL4hqcFCLLQAAxlW', 0, 'Carlos Sadness ', 1, ''),
+	(32, 'Angel ', 'Vega', 'artista1@gmail.com               ', '2022-01-29 15:31:39', 1, '2022-01-29 15:31:39', '$2a$10$SbIxV2cMSkCMKRWndvRpq.BBa/FuIvQYUnu43zxRF.6/sr0ZpMTYa', 0, 'Angel Vega', 1, '/uploads/yo2.png'),
 	(37, 'Alek   ', 'Syntek   ', 'artista5@gmail.com   ', '2022-01-30 11:18:23', 1, '2022-01-30 11:18:23', '$2a$10$M7Q0ZPcSywRFr2W2tE1LH.AjY8rjkQtIDhvrzkieIADnhZfXLrfrS', 0, 'Alek Syntek ', 1, ''),
-	(44, 'Artista           ', 'prueba           ', 'artista3@gmail.com           ', '2022-02-01 23:12:45', 1, '2022-02-01 23:12:45', '$2a$10$LEd6YxBWbsJmOmGhN3TUA.ImA60a9ZI3J2bGMAaPvID38LnCPEGgS', 0, 'Muse', 1, '/uploads/pexels-anastasia-shuraeva-8028186.mp4'),
-	(45, 'cliente', 'prueba', 'cliente1@gmail.com', '2022-02-02 01:03:45', 1, '2022-02-02 01:03:45', '$2a$10$f16BK0ue6yRD9KcL6T3xae5l2bawz/uOpXcFelCXwa/d6OYvMpRkK', 0, 'avega', 0, NULL);
+	(45, 'Bruno ', 'yapay ', 'cliente1@gmail.com  ', '2022-02-02 01:03:45', 1, '2022-02-02 01:03:45', '$2a$10$f16BK0ue6yRD9KcL6T3xae5l2bawz/uOpXcFelCXwa/d6OYvMpRkK', 0, 'avega  ', 0, NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
