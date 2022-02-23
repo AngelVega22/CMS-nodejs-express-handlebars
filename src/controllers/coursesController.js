@@ -92,7 +92,7 @@ controller.uploadFotoCurso = (req, res) => {
         console.log(req.files)
         var file = req.files.file
         var filename = file.name
-        console.log(filename)
+        // console.log(filename)
 
         file.mv('./src/public/uploads/' + filename, function (err) {
             if (err) {

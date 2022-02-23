@@ -63,29 +63,39 @@
         {{/each}}
     </div>
     <img class="llama" src="/images/llama-cafe.png" alt="">
+    <div style="height: 15vh;" class="bg-principal">
 
+
+
+        {{else}}
+        <div style="height: 30vh;" class="bg-principal">
+
+        </div>
+        <h3 class="alert alert-warning text-center m-5 mb-5">Todavia no hay cursos disponibles</h3>
+        <div style="height: 30vh;" class="bg-principal">
+        </div>
+        {{/if}}
+        {{else}}
+
+        <div style="height: 30vh;" class="bg-principal">
+
+        </div>
+        <h3 class="alert alert-warning text-center m-5 mb-5">Todavia no hay cursos disponibles</h3>
+        <div style="height: 30vh;" class="bg-principal">
+        </div>
+
+        {{/if}}
+        {{else}}
+
+        <div style="height: 30vh;" class="bg-principal">
+
+        </div>
+        <h3 class="alert alert-warning text-center m-5 mb-5">Todavia no hay cursos disponibles</h3>
+        <div style="height: 30vh;" class="bg-principal">
+        </div>
+
+        {{/if}}
 </section>
-
-{{else}}
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-    <path fill="#00849D" fill-opacity="1" d="M0,192L1440,96L1440,0L0,0Z"></path>
-</svg>
-<h3 class="alert alert-warning text-center m-5 mb-5">Todavia no hay cursos disponibles</h3>
-{{/if}}
-{{else}}
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-    <path fill="#00849D" fill-opacity="1" d="M0,192L1440,96L1440,0L0,0Z"></path>
-</svg>
-<h3 class="alert alert-warning text-center m-5 mb-5">Todavia no hay cursos disponibles</h3>
-{{/if}}
-{{else}}
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-    <path fill="#00849D" fill-opacity="1" d="M0,192L1440,96L1440,0L0,0Z"></path>
-</svg>
-<h3 class="alert alert-warning text-center m-5 mb-5">Todavia no hay cursos disponibles</h3>
-
-{{/if}}
-
 
 <script>
     const fotoParaCategoria = document.getElementById('fotoCategoria').getAttribute("src")

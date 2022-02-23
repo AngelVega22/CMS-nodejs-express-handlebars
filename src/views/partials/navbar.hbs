@@ -1,4 +1,4 @@
-<header class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow-sm">
+<header class="navbar navbar-light bg-light flex-md-nowrap p-0 shadow-sm">
 
   {{#if user.is_superuser}}
   <div class="container"><a class=" col-md-3 col-lg-2  bg-light text-end text-decoration-none text-dark fw-bold "
@@ -161,12 +161,34 @@
 </header>
 
 
-<header class="header">
+<div class="header">
 
 
   <div class="container">
 
 
   </div>
+  <div class="header__bar">
+    <div class="wrapper__title">
 
-</header>
+
+      {{!-- <p class="header__title text-white"> Escuela Digital</p> --}}
+      <a class="nav-link h5 m-2 fw-bold text-white header__title" href="/">Escuela Digital</a>
+
+    </div>
+    <div class="container__info">
+
+      <div class="wrapper__info d-flex justify-content-start">
+
+        {{!-- <a class="nav-link h5 m-2 fw-bold nav-hover" href="/">Escuela</a> --}}
+        <a class="nav-link h5  m-2 fw-bold nav-hover" href="/cursos">Cursos</a>
+        <a class="nav-link h5  m-2 fw-bold nav-hover" href="/promociones">Promociones</a>
+
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

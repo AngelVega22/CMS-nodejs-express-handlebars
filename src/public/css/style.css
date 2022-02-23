@@ -219,13 +219,13 @@ ol {
 				 -21px -21px 33px #ffffff;
 }
 .nav-hover{
-	color: black !important;
+	color: white !important;
 	border-radius: 10px;
 	margin-left: 1vw;
 }
 
 .nav-hover:hover{
-	color: white !important;
+	color: #ffc107 !important;
 background-color: #00849D;
 border-radius: 10px;
 }
@@ -306,3 +306,54 @@ border-radius: 10px;
   .btn {
 	cursor: pointer;
   }
+
+
+.header__bar{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  height: 80px;
+}
+
+.wrapper__title{
+  background-color: #7E7E7E;
+  display: flex;
+  justify-content: center;
+}
+
+.header__title{
+  font-family: "Leckerli One",Sans-serif !important;
+  font-size: 2rem;
+  font-weight: 200;
+  text-align: center;
+  margin: auto 0;
+}
+.font-title{
+	font-family: "Leckerli One",Sans-serif !important;
+	font-weight: 400;
+
+}
+.titulo-secundario{
+	font-size: 4em;
+}
+
+.container__info{
+  background-color: #00849D;
+   display: flex;
+  align-items: center;
+}
+
+
+.wrapper__info{
+  width: 98%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+
+.wrapper__info span{
+  color: #0DA1BD;
+  font-family: 'Roboto';
+  font-size: 1.277rem;
+}
